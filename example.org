@@ -5,6 +5,7 @@
 #+title: hello world
 #+author: yzs
 #+date: [2023-02-11 六]
+#+setupfile: https://yzs249175311.github.io/org-theme-dull/org-theme-dull.setup
 
 * 一级标题
 - 无序列表
