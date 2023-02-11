@@ -1,0 +1,348 @@
+:PROPERTIES:
+:ID:       c51d06d7-7cc3-4d11-9d66-1575830b9f6a
+:END:
+#+TITLE: shell-script-study
+#+author: yzs
+#+DATA: [2022-10-02 日]
+
+
+* shell script
+** 变量和参数
+*** 定义和撤销变量
+- 定义: ~A=100~ or ~A="100"~ ,定义静态变量: ~readonly A=100~,静态变量无法用unset取消
+- 获取变量的值: ~$A~
+- 打印变量: ~echo A=$A~ or echo ~A="$A"~ ,此时 ~$A~ 会转化成100，输出: ~A=100~
+- 撤销变量: ~unset A~
+*** 反引号``
+- ~A=`date`~ 运行反引号里的命令，并把返回值赋值给A
+- 与 ~A=$(date)~ 等价
+*** 位置参数
+- ~$n~ n为数字0-9, ~$0~ 表示命令本身, $1-$9表示第1到第9个参数,如果是10以上的参数，需要大括号 ~${10}~
+- ~$*~ 代表命令行中所以的参数,把所以参数看成一个整体.在for循环中, ~$*~ 需要加双引号否则效果跟 ~$@~ 是一样的
+- ~$@~ 也代表命令行中所以的参数,但每个参数分别看待
+- ~$#~ 代表参数的数量
+*** 预定义变量
+- ~$$~ 当前程序的进程号PID
+- ~$!~ 后台运行的最后一个进程的进程号
+- ~$?~ 最后一次执行命令的返回状态，如果为0,说明命令执行正确,反之,说明执行不正确
+** shell字符串
+*** 字符串创建
+- 字符串创建有下面几种方式：
+  #+begin_src bash
+  # 双引号创建
+  A="aaa"
+  # 单引号创建
+  B='bbb'
+  # 不需要引号也可以创建
+  C=ccc
+  #+end_src
+*** 字符串拼接 
+#+begin_src bash
+  A=aaa
+  B=bbb
+
+  C=$A$B
+  echo $C
+#+end_src
+*** 获取字符串长度
+#+begin_src bash
+  A=aaaaaaa
+
+  echo ${#A}
+#+end_src
+*** 获取字符串的子串
+#+begin_src bash
+  A="hello world"
+  echo ${A:1:4}
+#+end_src
+
+** 注释
+- 单行注释 ~#~ 和 多行注释 ~:<<! [多行内容] !~
+  #+begin_src bash
+    # 多行注释注意内容和！之间如果在同一行需要至少需要一个空格
+    :<<!
+    这
+    是
+    多
+    行
+    注
+    释
+    !
+  #+end_src
+** 运算式
+- 格式： ~$((运算式))~ 或 ~$[运算式]~ 或 ~expr m + n~
+  - 注意 ~expr~ 运算符间要有空格,使用 ~expr~ 需要使用反引号
+    #+begin_src bash 
+      echo `expr 1 + 2`
+      echo $(expr 1 + 2)
+    #+end_src
+** 条件判断
+*** 比较
+- 字符串比较使用 ~=~
+- 两个整数的比较
+  | ~-lt~ | 小于     |
+  | ~-le~ | 小于等于 |
+  | ~-eq~ | 等于     |
+  | ~-gt~ | 大于     |
+  | ~-ge~ | 大于等于 |
+  | ~-ne~ | 不等于   |
+- 按照文件权限进行比较
+  | ~-r~ | 有读的权限   |
+  | ~-w~ | 有写的权限   |
+  | ~-x~ | 有执行的权限 |
+- 按照文件类型进行判断
+  | ~-f~ | 文件存在并且是一个常规文件 |
+  | ~-e~ | 文件存在                   |
+  | ~-d~ | 文件存在并且是一个目录     |
+*** if语句
+- 格式 ~[ condition ]~ 注意condition前后需要空格
+- example:
+  - 字符串比较
+    #+begin_src bash :results output
+
+      if [ "ok" = "ok1" ]; then
+          echo "true"
+      elif [ "ok" = "ok" ]; then
+          echo "false"
+      fi
+
+    #+end_src
+  - 文件判断
+    #+begin_src bash
+
+      if [ -d /root/no ]
+      then
+          echo "true"
+      elif [ -f ~/.config/.zprofile ]
+      then
+          echo "get file"
+      else
+          echo "no"
+      fi
+
+    #+end_src
+*** case语句
+- 格式
+  #+begin_example
+    case $变量名 in
+    "值1")
+    如果变量名为1,执行程序1
+    ;;
+    "值2")
+    如
+    ;;
+    "值3")
+    如果变量名为3,执行程序3
+    ;;
+    ,*)
+    如果以上都不满足，执行次程序
+    esac
+  #+end_example
+- example:
+  #+begin_src bash
+    VAR=hello
+    echo $VAR
+    case $VAR in
+        "10")
+            echo 10 ;;
+        "20")
+            echo 20 ;;
+        "hello")
+            echo "hello" ;;
+        ,*)
+            echo "over" ;;
+    esac
+  #+end_src
+*** test语句
+- example:
+  #+begin_src bash
+  num1=200
+  num2=200
+  if test ${num1} -eq ${num2}
+  then
+      echo '两个数相等！'
+  else
+      echo '两个数不相等！'
+  fi
+  #+end_src
+
+** 命令行展开 {}
+  - ~echo hello{1..100}~
+  - ~echo hello{1..100..2}~
+** 正则表达式
+- 分为：
+  - 基本正则表达式
+  - 扩展正则表达式
+    - 使用扩展正则表达式需要使用: ~grep -E~ 才能生效
+*** grep,seed,awk
+- grep: 文本过滤工具
+  - 语法 ~grep [OPTION...] PATTERNS [FILE...]~
+    | option       | describe         |
+    |--------------+------------------|
+    | -v           | 排除匹配结果     |
+    | -n           | 显示行号         |
+    | -i           | 忽略大小写       |
+    | -c           | 只统计行数       |
+    | -E           | 使用egrep        |
+    | --color=auto | 为结果添加颜色   |
+    | -w           | 只匹配过滤的单词 |
+    | -o           | 只输出匹配的内容 |
+
+- sed: 流编辑器
+  - 语法: ~sed [选项] [sed内置命令字符] [输入文件]~
+    | 参数选项 | 解释                   |
+    |----------+------------------------|
+    | -n       | 取消默认sed的输出      |
+    | -i       | 直接将修改结果写入文件 |
+    | -e       | 多次编辑需要管道符     |
+    | -r       | 支持正则扩展           |
+
+    | sed内置命令字符   | 解释                                              |
+    |-------------------+---------------------------------------------------|
+    | a                 | append,对文本追加，在指定行后面添加一行或多行文本 |
+    | d                 | delete,删除匹配行                                 |
+    | i                 | insert,表示插入文本，在指定行前添加一行或多行     |
+    | P                 | Print,打印匹配行的内容通常p与-n一起用             |
+    | s/正则/替换内容/g | 匹配正则内容，然后替换，g代表全局                 |
+
+- awk: linux文本报告生成器,linux上是gawk
+  - 语法: awk [选项] '条件类型1 {动作1} 条件类型2 {动作2}'
+    - *注意: 条件类型和动作必须在单引号里*
+    | 选项参数 | 解释                      |
+    |----------+---------------------------|
+    | -F       | 选择分割字符              |
+    | -v       | 定义或修改一个awk内部变量 |
+    | -f       | 从脚本文件中读取awk命令   |
+
+    | 变量名称 | 代表意义         |
+    |----------+------------------|
+    | NF       | 每一行字段的数量 |
+    | NR       | 当前的行数       |
+    | FS       | 输入分隔符       |
+    | OFS      | 输出分隔符       |
+
+    Example:
+    - 更改输入分隔符
+      - ~awk -v FS=":" {print $1,$2}~
+      - 等价于: ~awk -F ":" {print $1,$2}~
+    - 修改输出分隔符
+      - ~awk -v OFS="#" {print $1,$2}~
+    
+** 条件判断
+- 使用if else
+    #+begin_src bash
+
+    #第一种
+    if [ 条件判断式 ]; then
+        ...
+    fi
+
+
+    #第二种   
+    if [ 条件判断式 ]; then
+        ...
+    else 
+        ...
+    fi
+
+    #第三种
+    if [ 条件判断式1 ]; then
+        ...
+    elif [ 条件判断式2 ]; then
+        ...
+    else
+        ...
+    fi
+
+    #+end_src
+
+- 使用case
+    #+begin_src bash
+
+    case $变量名称 in #<==关键词为 case ，还有变数前有钱字号
+        "第一个变量内容") #<==每个变量内容建议用双引号括起来，关键词则为小括号 )
+            程序段
+            ;; #<==每个类别结尾使用两个连续的分号来处理！
+        "第二个变量内容")
+            程序段
+            ;;
+        ,*) #<==最后一个变量内容都会用 * 来代表所有其他值
+            不包含第一个变量内容与第二个变量内容的其他程序执行段
+            exit 1
+            ;;
+    esac #<==最终的 case 结尾！『反过来写』思考一下！
+
+    #+end_src
+** 循环(loop)
+- while
+  #+begin_src bash
+
+    while [ condition ];
+    do
+        ...
+    done
+
+  #+end_src
+
+- until
+  #+begin_src bash
+
+    until [ condition ];
+    do
+        ...
+    done
+
+  #+end_src
+
+- for
+  #+begin_src bash
+
+    for var in con1 con2 con3
+    do
+        ...
+    done
+
+  #+end_src
+
+- for...do...done 
+  #+begin_src bash
+
+    for (( 初始值; 限制值; 执行步阶 ))
+    do
+    程序段
+    done
+
+  #+end_src
+** 函数
+*** 系统函数
+**** basename [pathname] [suffix]
+- 功能返回完整路径最后一个/之后的内容
+- 如果写了suffix，则会返回删除suffix之后的内容。
+**** dirname [pathname]
+- 功能返回完整路径前面的路径
+*** 自定义函数
+- 基本语法
+  #+BEGIN_EXAMPLE
+    [ function ] funname[()]
+    {
+        Action;
+        [return int;]
+    }
+  #+END_EXAMPLE
+
+- example:
+  - 求两个输入值的和
+    #+begin_src bash
+      function getSum(){
+          sum=$[n1+n2];
+          echo $sum
+      }
+
+      read -p "输入一个数n1=" n1;
+      read -p "输入一个数n2=" n2;
+
+      getSum $n1 $n2;
+    #+end_src
+
+
+
