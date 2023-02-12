@@ -1,3 +1,6 @@
+:root {
+	font-size: 16px;
+}
 .title  { text-align: center;
 		  margin-bottom: .2em; }
 .subtitle { text-align: center;
@@ -205,8 +208,12 @@ pre .copy-block::before{
 	content:"📋";
 }
 
-pre .copyed.copy-block::before{
+pre .copy-block.copyed{
+	pointer-events: none;
+}
+pre .copy-block.copyed::before{
 	content:"复制成功✔️";
+	color: green;
 }
 
 pre:hover .copy-block {
@@ -234,3 +241,39 @@ pre.example::before {
 pre.example:hover::before {
 	display: block;
 }
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+
+
+#content ol>li {
+  counter-increment: list-item;
+}
+
+#content ol>li:before {
+  content: counter(list-item);
+  margin-right: 0.4rem;
+  background-color: #141111;
+  color: #fff;
+  font-size:0.8rem;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+

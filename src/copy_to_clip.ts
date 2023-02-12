@@ -6,11 +6,16 @@ export default (function(){
 		item.appendChild(span)
 
 		span.addEventListener("click", (e: MouseEvent)=>{
-			navigator.clipboard.writeText((e.currentTarget as HTMLPreElement).innerText)
-			span.classList.add("copyed")
-			setTimeout(()=>{
-				span.classList.remove("copyed")
-			},3000)
+			navigator.clipboard.writeText(((e.currentTarget as HTMLSpanElement).parentNode! as HTMLPreElement).innerText)
+				.then(()=>{
+					span.classList.add("copyed")
+
+					setTimeout(()=>{
+						span.classList.remove("copyed")
+					},3000)
+				}).catch(err => {
+					console.log(err)
+				})
 		})
 	})
 })();
