@@ -190,7 +190,7 @@ textarea { overflow-x: auto; }
 @tailwind components;
 @tailwind utilities;
 
-#content ul li::marker{
+#content ul>li::marker{
 	content:"👉 "
 }
 
