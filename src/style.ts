@@ -31,6 +31,8 @@ export default (function(){
 	setStyleAll("#content h4", "text-2xl my-4 h-12 z-10 shadow pl-4")
 	setStyleAll("#content h5", "text-xl my-4 h-12 z-10 shadow pl-4 ")
 	setStyleAll("#content h6", "text-lg my-4 h-12 z-10 shadow  pl-4")
+	
+	setStyleAll("#content a", "text-blue-800 underline")
 
 	setStyleAll("h1[id^=org]", "bg-slate-50  sticky top-0 border-solid")
 	setStyleAll("h2[id^=org]", "bg-slate-50  sticky top-0 border-solid")
