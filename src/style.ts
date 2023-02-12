@@ -14,10 +14,11 @@ export default (function(){
 	setStyle("#content", "w-8/12 mr-auto ml-24 relative scroll-smooth")
 	setStyle("#content h1.title", "mb-12 mt-12 shadow-none text-5xl font-bold")
 
-	setStyleAll("#table-of-contents", "fixed top-8 right-4 border rounded-lg p-4 pt-0 shadow-lg center max-h-[80%] max-w-xs hover:max-w-fit overflow-y-auto transition-transform translate-x-[120%] xl:translate-x-0")
+	setStyleAll("#table-of-contents", "z-20 fixed top-8 right-4 border rounded-lg p-4 pt-0 shadow-lg center max-h-[80%] max-w-xs hover:max-w-fit overflow-y-auto transition-transform translate-x-[120%] xl:translate-x-0")
 	setStyleAll("#table-of-contents h2", "text-xl shadow-none font-bold border-b-2 py-4 mb-4 sticky top-0 bg-white text-center")
 	setStyleAll("#table-of-contents ul:not(:nth-child(1))", "list-none list-inside m-0 pl-4")
 	setStyleAll("#table-of-contents ol:not(:nth-child(1))", "list-none list-inside m-0")
+	setStyleAll("#table-of-contents li", "whitespace-nowrap")
 
 	setStyleAll("#content pre", "rounded-lg shadow-lg border-solid m-4")
 	setStyleAll("#content ul", "list-disc list-inside m-2 pl-4")
