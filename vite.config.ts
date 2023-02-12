@@ -1,6 +1,8 @@
 import {defineConfig} from 'vite'
 export default defineConfig({
+	
   build: {
+	  outDir: "docs/",
     rollupOptions: {
       output: {
         // 入口文件名
@@ -11,5 +13,6 @@ export default defineConfig({
         assetFileNames: 'assets/org-theme-dull.[ext]',
       },
     },
-  }
+  },
+
 })
