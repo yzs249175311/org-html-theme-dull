@@ -1,6 +1,11 @@
 :root {
 	font-size: 16px;
 }
+
+html {
+	/* background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%); */
+}
+
 .title  { text-align: center;
 		  margin-bottom: .2em; }
 .subtitle { text-align: center;
@@ -189,91 +194,4 @@ textarea { overflow-x: auto; }
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-#content ul>li::marker{
-	content:"👉 "
-}
-
-
-pre .copy-block{
-	visibility: hidden;
-	position: absolute;
-	font-size: 1.5rem;
-	font-family: "Google Noto Color Emoji";
-	right: .5rem;
-	bottom: .5rem;
-}
-
-pre .copy-block::before{
-	content:"📋";
-}
-
-pre .copy-block.copyed{
-	pointer-events: none;
-}
-pre .copy-block.copyed::before{
-	content:"复制成功✔️";
-	color: green;
-}
-
-pre:hover .copy-block {
-	visibility: visible;
-	position: absolute;
-	right: .5rem;
-	bottom: .5rem;
-	cursor: pointer;
-}
-
-pre.example{
-	position: relative;
-	overflow: auto;
-}
-pre.example::before {
-	content:"example";
-	display: none;
-	position: absolute;
-	top: 8px;
-	right: 12px;
-	padding: 3px;
-	color: #555;
-	background-color: #f2f2f299;
-}
-pre.example:hover::before {
-	display: block;
-}
-blockquote {
-  background: #f9f9f9;
-  border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
-}
-blockquote:before {
-  color: #ccc;
-  content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
-}
-blockquote p {
-  display: inline;
-}
-
-
-#content ol>li {
-  counter-increment: list-item;
-}
-
-#content ol>li:before {
-  content: counter(list-item);
-  margin-right: 0.4rem;
-  background-color: #141111;
-  color: #fff;
-  font-size:0.8rem;
-  font-weight: bold;
-  padding: 3px 8px;
-  border-radius: 3px;
-}
-
 
