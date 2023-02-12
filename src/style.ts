@@ -11,6 +11,15 @@ export default (function(){
 
 	document.documentElement.style.scrollBehavior = "smooth"
 
+	setStyleAll("table", "p-4 m-4 table-auto")
+	setStyleAll("thead", "bg-slate-200 rounded ")
+	setStyleAll("td,thead", "border shadow p-3")
+	setStyleAll("tbody>tr:nth-of-type(2n)", "bg-slate-100")
+	setStyleAll("code:not(table code)", "border shadow px-2 text-red-400 w-max h-max inline-block")
+
+	setStyleAll(".tag","flex item-center bg-transparent ml-auto")
+	setStyleAll(".tag span","flex items-center  rounded-lg p-1 bg-cyan-800 text-white")
+
 	setStyle("#content", "w-8/12 mr-auto ml-24 relative scroll-smooth")
 	setStyle("#content h1.title", "mb-12 mt-12 shadow-none text-5xl font-bold")
 
@@ -19,13 +28,26 @@ export default (function(){
 	setStyleAll("#table-of-contents ul:not(:nth-child(1))", "list-none list-inside m-0 pl-4")
 	setStyleAll("#table-of-contents ol:not(:nth-child(1))", "list-none list-inside m-0")
 	setStyleAll("#table-of-contents li", "truncate")
+	setStyleAll("#table-of-contents li a", "flex items-center  h-[2rem] hover:underline")
+	setStyleAll("#table-of-contents li a>span:nth-child(1):not(.tag)", "-mb-[0.2rem]")
+	setStyleAll("#table-of-contents li a .tag span", "scale-[0.6] -mx-3")
 
 	setStyleAll("#content pre", "rounded-lg shadow-lg border-solid m-4")
-	setStyleAll("#content ul", "list-disc list-inside m-2 pl-4")
-	setStyleAll("#content ol", "list-inside m-2 pl-4 flex flex-col")
+	setStyleAll("#content ul", "list-disc list-inside m-2")
+	setStyleAll("#content ul>li>ul", "pl-4")
+	setStyleAll("#content ol", "list-inside m-2 flex flex-col")
+	setStyleAll("#content ol>li>ol", "list-inside m-2 pl-4 flex flex-col")
+	setStyleAll("#content li", "my-[0.1rem]")
 
 	setStyleAll("p", "inline-block text-left")
 	setStyleAll("#content a", "text-blue-800 underline")
+
+	setStyleAll("h1[id^=org]", "bg-slate-50  sticky top-0 border-solid truncate hover:z-20  hover:max-h-auto hover:whitespace-normal hover:overflow-x-auto hover:text-clip pr-8")
+	setStyleAll("h2[id^=org]", "bg-slate-50  sticky top-0 border-solid truncate hover:z-20  hover:max-h-auto hover:whitespace-normal hover:overflow-x-auto hover:text-clip pr-8")
+	setStyleAll("h3[id^=org]", "bg-slate-50  sticky top-0 border-solid truncate hover:z-20  hover:max-h-auto hover:max-h-auto hover:whitespace-normal hover:overflow-x-auto hover:text-clip pr-8")
+	setStyleAll("h4[id^=org]", "bg-slate-50  sticky top-0 border-solid truncate hover:z-20  hover:max-h-auto hover:whitespace-normal hover:overflow-x-auto hover:text-clip pr-8")
+	setStyleAll("h5[id^=org]", "bg-slate-50  sticky top-0 border-solid truncate hover:z-20  hover:max-h-auto hover:whitespace-normal hover:overflow-x-auto hover:text-clip pr-8")
+	setStyleAll("h6[id^=org]", "bg-slate-50  sticky top-0 border-solid truncate hover:z-20  hover:max-h-auto hover:whitespace-normal hover:overflow-x-auto hover:text-clip pr-8")
 
 	setStyleAll("#content h1:not(.title)", "flex items-center text-5xl my-4 z-10 shadow pl-8 min-h-[3.5rem]")
 	setStyleAll("#content h2", "flex items-center text-4xl my-4 z-10 shadow pl-8  min-h-[3.5rem]")
@@ -48,21 +70,4 @@ export default (function(){
 	setStyleAll("#content h5 span:not(.tag):not([class^=section])", "-mb-2")
 	setStyleAll("#content h6 span:not(.tag):not([class^=section])", "-mb-2")
 
-
-	setStyleAll("h1[id^=org]", "bg-slate-50  sticky top-0 border-solid truncate hover:z-20  hover:max-h-auto hover:whitespace-normal hover:overflow-x-auto hover:text-clip pr-8")
-	setStyleAll("h2[id^=org]", "bg-slate-50  sticky top-0 border-solid truncate hover:z-20  hover:max-h-auto hover:whitespace-normal hover:overflow-x-auto hover:text-clip pr-8")
-	setStyleAll("h3[id^=org]", "bg-slate-50  sticky top-0 border-solid truncate hover:z-20  hover:max-h-auto hover:max-h-auto hover:whitespace-normal hover:overflow-x-auto hover:text-clip pr-8")
-	setStyleAll("h4[id^=org]", "bg-slate-50  sticky top-0 border-solid truncate hover:z-20  hover:max-h-auto hover:whitespace-normal hover:overflow-x-auto hover:text-clip pr-8")
-	setStyleAll("h5[id^=org]", "bg-slate-50  sticky top-0 border-solid truncate hover:z-20  hover:max-h-auto hover:whitespace-normal hover:overflow-x-auto hover:text-clip pr-8")
-	setStyleAll("h6[id^=org]", "bg-slate-50  sticky top-0 border-solid truncate hover:z-20  hover:max-h-auto hover:whitespace-normal hover:overflow-x-auto hover:text-clip pr-8")
-
-	setStyleAll("table", "p-4 m-4 table-auto")
-	setStyleAll("thead", "bg-slate-200 rounded ")
-	setStyleAll("td,thead", "border shadow p-3")
-	setStyleAll("tbody>tr:nth-of-type(2n)", "bg-slate-100")
-
-	setStyleAll("code:not(table code)", "border shadow px-2 text-red-400 w-max h-max inline-block")
-
-	setStyleAll(".tag","bg-transparent ml-auto")
-	setStyleAll(".tag span","shadow rounded-lg p-1 bg-cyan-800 text-white")
 })()
