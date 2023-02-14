@@ -1,6 +1,5 @@
-// import './style.css'
-import './assets/css/light.css'
+import './style.css'
+import './assets/css/style.scss'
 
 import './layout.ts'
-import './style.ts'
 import './copy_to_clip.ts'

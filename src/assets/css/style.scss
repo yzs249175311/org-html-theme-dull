@@ -1,0 +1,351 @@
+@import "./light.scss";
+@import "./svg.scss";
+
+$bd-color: #e5e7eb;
+
+:root {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+
+
+ul,ol {
+	list-style: inside;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+
+	li {
+		p {
+			display: inline-block;
+			margin: 0px;
+			padding: 0px;
+		}
+	}
+}
+
+table {
+	padding: 1rem;
+	margin: 1rem;
+	table-layout: auto;
+	thead{
+		background-color: rgb(226 232 240);
+	}
+
+	tbody>tr:nth-of-type(2n){
+		background-color: rgb(241 245 249);
+	}
+}
+
+.tag{
+	display: flex;
+	align-items: center;
+	overflow: hidden auto;
+	background-color: transparent;
+	&>span {
+		display: flex;
+		align-items: center;
+
+		&::before {
+			content: "";
+			display: flex;
+			flex: none;
+			width: 1rem;
+			height: 1rem;
+
+			background-image: url($bg-image-1);
+			background-size: contain;
+			background-color: transparent;
+			background-repeat: no-repeat;
+		}
+	}
+}
+
+
+#table-of-contents {
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	max-height: 80vh;
+	max-width: 20rem;
+	right: 1rem;
+	top: 4rem;
+	border: 1px solid $bd-color;
+	border-radius: 1rem;
+	padding: 1rem;
+	padding-top: 0;
+	margin-left: auto;
+	transform: translateX(0%);
+	transition: all ease 150ms;
+	box-shadow: 0 1px 10px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+	z-index: 20;
+
+	a:link,a:visited,a:hover,a:active{
+		text-decoration: none;
+		color: #000;
+	}
+
+	&:hover{
+		max-width: 30%;
+	}
+
+	h2 {
+		text-align: center;
+		font-size:1.5rem;
+		font-weight:400;
+		border-bottom:2px solid $bd-color;
+		padding:1rem;
+		margin-bottom: 1rem;
+	}
+
+	& ul,& ol{
+		list-style: inside;
+		list-style-type: none;
+		margin-left: 0;
+		padding-left: 0;
+		ul,ol {
+			margin-left: 2rem;
+			a {
+				display: flex;
+				align-items: center;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+
+				&>span:nth-child(1):not(.tag) {
+					margin: 0 0.2rem;
+					margin-bottom: -0.2rem;
+				}
+
+				.tag {
+					display:flex;
+					flex-flow:row nowrap;
+					margin-left: auto;
+					transform: scale(0.8);
+					background-color: transparent;
+					span {
+						display:flex;
+						flex-flow:row nowrap;
+						margin: 0px;
+						padding: 0.1rem;
+
+						/* 最多显示三个标签 */
+						&:nth-child(n+4){
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#content {
+	min-width: 756px;
+	max-width: 90%;
+	margin: 0 25rem 0 2rem;
+
+	code:not(table code){
+		font-size: 1rem;
+		color: rgb(239 68 68);
+		box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+		padding: 0 0.2rem;
+	}
+
+	pre {
+		margin: 1rem;
+		border:1px solid $bd-color;
+		border-radius:1rem;
+		box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+		.copy-block{
+			visibility: hidden;
+			position: absolute;
+			font-size: 1rem;
+			font-family: "Google Noto Color Emoji";
+			right: .5rem;
+			bottom: .5rem;
+
+			&::before{
+				content:"📋";
+			}
+
+			&.copyed{
+				pointer-events: none;
+				&::before{
+					content:"复制成功✔️";
+					color: green;
+				}
+			}
+		}
+
+		&:hover .copy-block {
+			visibility: visible;
+			position: absolute;
+			right: 0;
+			right: .5rem;
+			bottom: .5rem;
+			cursor: pointer;
+		}
+
+		&.example{
+			position: relative;
+			overflow: auto;
+		}
+		&.example::before {
+			content:"example";
+			display: none;
+			position: absolute;
+			top: 8px;
+			right: 12px;
+			padding: 3px;
+			color: #555;
+			background-color: #f2f2f299;
+		}
+		&.example:hover::before {
+			display: block;
+		}
+	}
+
+	a {
+		color: blue;
+		text-decoration: underline;
+	}
+
+	div>ul,div>ol {
+		display:flex;
+		flex-flow:column wrap;
+		margin-left: 0;
+		padding-left: 0;
+
+		ul,ol{
+			margin-left: 2rem;
+		}
+
+		li {
+			margin: .2rem 0;
+			padding: .2rem .2rem;
+		}
+	}
+
+	ul>li::marker{
+		content:"👉 ";
+	}
+
+	ol>li {
+		counter-increment: list-item;
+		&::before {
+			display:inline-block;
+			content: counter(list-item);
+			margin-right: 0.4rem;
+			background-image: url($bg-image-3);
+			background-size: contain;
+			background-repeat:no-repeat ;
+			text-align: center;
+			line-height:1.8rem;
+			width: 1.8rem;
+			height: 1.8rem;
+			font-size:0.8rem;
+			font-weight: bold;
+			transform: scale(1.2);
+		}
+	}
+
+	.title {
+		display: block;
+		font-size: 3rem;
+		margin: 0 auto;
+	}
+
+	@for $index from 1 through 6{
+		.title~*h#{$index}{
+			display: flex;
+			align-items:center;
+			position: sticky;
+			top: 0;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			background-color: rgb(248 250 252);
+			font-family:'ZCOOL KuaiLe', 'Noto Sans SC', sans-serif;
+			font-size: 2rem;
+			font-weight: 400 ;
+			z-index: 20;
+			padding: 0.5rem;
+			margin: 1rem 0;
+			padding-right: 1rem;
+			box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+
+			&:hover {
+				white-space: normal;
+			}
+
+			&::before,
+			{
+				content:"";
+				display:flex;
+				flex: 0 0 auto;
+				width: 1em;
+				height: 1em;
+				align-items:center;
+				margin-right: .5rem;
+				background-color: transparent;
+				background-image: url($bg-image-2);
+				background-size: contain;
+				background-repeat: no-repeat;
+			}
+
+			&>span[class^=section-number]+span {
+				padding: 0 0.5rem;
+				margin-bottom: -0.2rem;
+			}
+
+			&.title {
+				margin: 3rem auto;
+				font-size: 1em;
+				font-weight: 700;
+			}
+			
+
+			.tag {
+				display:flex;
+				flex-flow:row nowrap;
+				margin-left: auto;
+				font-size: 1rem;
+				span{
+					&:nth-of-type(n+4){
+						white-space:nowrap;
+						text-indent: -9999px
+					}
+				}
+
+			}
+		}
+	}
+
+}
+
+blockquote {
+	background: #f9f9f9;
+	border-left: 10px solid #ccc;
+	margin: 1.5em 10px;
+	padding: 0.5em 10px;
+	quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote:before {
+	color: #ccc;
+	content: open-quote;
+	font-size: 4em;
+	line-height: 0.1em;
+	margin-right: 0.25em;
+	vertical-align: -0.4em;
+}
+
+blockquote p {
+	display: inline;
+}
+
+
+
+
