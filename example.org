@@ -21,11 +21,157 @@ strike-through: +strike-through+
   - 无序列表
     - 无序列表
       1. 有序列表
+        文件链接: [[file:readme.md][readme]]
+      2. 有序列表
+        网页链接:[[http://www.baidu.com][百度]]
+      3. 有序列表
+      4. 有序列表
+  - 无序列表
+
+    | thead | thead | thead |
+    |-------+-------+-------|
+    | cell  | cell  | cell  |
+    | 中文  | 中文  | cell  |
+    |       |       |       |
+    |       |       |       |
+    |       |       |       |
+    
+
+1. 有序列表
+   1) 有序列表
+      - 无序列表
+        - 无序列表
+      - 无序列表
+   2) 有序列表
+   3) 有序列表
+
+** 二级标题 1                              :你好:世界:冒险岛:还是觉得你最好:
+** 二级标题 二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 22 :asdf:adf:你好:
+
+*** 三级标题
+1. 有序列表
+   1) 有序列表
+      1) 有序列表
+   2) 有序列表
+   3) 有序列表
+    #+begin_src  shell
+    代码块
+    代码块
+    代码块
+    代码块
+    #+end_src
+
+
+#+begin_src  shell
+  case $1 in
+      "up")
+          pactl set-sink-volume @DEFAULT_SINK@ +5% ;;
+      "down")
+          pactl set-sink-volume @DEFAULT_SINK@ -5% ;;
+      "mute")
+          pactl set-sink-mute @DEFAULT_SINK@ toggle
+  esac
+
+#+end_src
+
+#+begin_src  js
+
+  let name = "hello world"
+
+  function greeting() {
+      console.log("hello world")
+  }
+
+  class Bird {
+      value
+      #value
+
+      function sing() {
+          console.log("hello world")
+      }
+  }
+
+#+end_src
+
+
+#+begin_example
+  example
+  example
+  example
+  example
+#+end_example
+
+#+begin_quote
+  quote
+  quote
+  quote
+  quote
+  quote
+#+end_quote
+
+
+*** TODO 三级标题                                             :hello:world:
+*** DONE 三级标题                                             :hello:world:
+
+- [-] task 1 [60%]
+  - [X] task 1.1
+  - [ ] task 1.2
+  - [ ] task 1.2
+  - [X] task 1.2
+  - [X] task 1.2
+
+
+1. [-] task 1 [2/5]
+   1. [X] task 1.1
+   2. [ ] task 1.2
+   3. [X] task 1.3
+   4. [ ] task 1.4
+   5. [ ] task 1.5
+
+*** DONE this is my task
+CLOSED: [2023-02-12 日 14:21] DEADLINE: <2023-02-12 日> SCHEDULED: <2023-02-12 日>
+
+*** TODO this is my task
+SCHEDULED: <2023-02-17 五 +1d>
+:PROPERTIES:
+:LAST_REPEAT: [2023-02-12 日 14:21]
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2023-02-12 日 14:21]
+- State "DONE"       from "TODO"       [2023-02-12 日 14:21]
+- State "DONE"       from "TODO"       [2023-02-12 日 14:21]
+- State "DONE"       from "TODO"       [2023-02-12 日 14:21]
+- State "DONE"       from "TODO"       [2023-02-12 日 14:21]
+:END:
+
+
+
+* 一级标题2
+bold: *bold*
+italic: /italic/
+underlined: _underlined_
+verbatim: =verbatim=
+code: ~code~
+strike-through: +strike-through+
+
+
+- 无序列表
+  - 无序列表
+    - 无序列表
+      1. 有序列表
       2. 有序列表
       3. 有序列表
       4. 有序列表
   - 无序列表
 
+    | thead | thead | thead |
+    |-------+-------+-------|
+    | cell  | cell  | cell  |
+    | 中文  | 中文  | cell  |
+    |       |       |       |
+    |       |       |       |
+    |       |       |       |
+    
 
 1. 有序列表
    1) 有序列表
@@ -51,19 +197,13 @@ strike-through: +strike-through+
     代码块
     #+end_src
 
-
-#+begin_src  shell
-  代码块
-  代码块
-  代码块
-  代码块
-#+end_src
-
 #+begin_example
+
   example
   example
   example
   example
+
 #+end_example
 
 #+begin_quote
@@ -107,6 +247,4 @@ SCHEDULED: <2023-02-17 五 +1d>
 - State "DONE"       from "TODO"       [2023-02-12 日 14:21]
 - State "DONE"       from "TODO"       [2023-02-12 日 14:21]
 :END:
-
-
 
