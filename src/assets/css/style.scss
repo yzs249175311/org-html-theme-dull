@@ -5,15 +5,6 @@ $bd-color: #e5e7eb;
 $nav-bg-color: red;
 $nav-node-bg-color: blue;
 
-/* ::-webkit-scrollbar{ */
-/* 	background-color: transparent; */
-/* } */
-
-/* ::-webkit-scrollbar-thumb{ */
-/* 	background-color: gray; */
-/* 	border-radius: 1rem; */
-/* 	transition: background-color ease 150ms; */
-/* } */
 
 :root,body{
 	box-sizing: border-box;
@@ -25,7 +16,7 @@ $nav-node-bg-color: blue;
 
 body {
 	width: 90vw;
-	overflow: hidden overlay;
+	overflow: hidden auto;
 }
 
 ::-webkit-scrollbar {
@@ -122,6 +113,8 @@ header {
 			background-color: transparent;
 			margin: 0 .5rem;
 			padding: .5rem .5rem;
+			cursor:pointer;
+			user-select: none;
 			&.active{
 				background-color: #000;
 				color: #fff;
@@ -133,7 +126,7 @@ header {
 main {
 	display: flex;
 	flex-flow: column nowrap;
-	overflow: hidden overlay;
+	overflow: hidden auto;
 	scroll-behavior: smooth;
 	top:0;
 	flex:1;
@@ -323,7 +316,7 @@ main {
 	transform: translateX(0%);
 	transition: all ease 150ms;
 	box-sizing: border-box;
-	overflow: hidden overlay;
+	overflow: hidden auto;
 
 	#text-table-of-contents>ul>li{
 		display: none;
