@@ -252,7 +252,7 @@ main {
 		h#{$index}{
 			display: flex;
 			align-items:center;
-			position: sticky;
+			position: relative;
 			top: 0;
 			white-space: nowrap;
 			text-overflow: ellipsis;
