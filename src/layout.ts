@@ -1,6 +1,9 @@
 export default function(){
 	let content = document.querySelector("#content")
 	let title = document.querySelector("#content>h1.title")!
+
+	let postamble = document.querySelector("#postamble")!
+	let tableOfContents = document.querySelector("#table-of-contents")
 	//创建导航
 	let nav = document.createElement("nav")
 	let main = document.createElement("main")
@@ -24,4 +27,5 @@ export default function(){
 	document.body.insertBefore(header,content)
 	content?.appendChild(main)
 
+	tableOfContents?.appendChild(postamble)
 };

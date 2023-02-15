@@ -22,9 +22,6 @@ body {
 ::-webkit-scrollbar {
 	background-color: transparent;
 }
-::-webkit-scrollbar-track{
-	width: 10px;
-}
 
 ::-webkit-scrollbar-thumb{
 	background-clip: content-box;
@@ -225,8 +222,21 @@ main {
 		}
 	}
 
-	ul>li::marker{
-		content:"👉 ";
+	ul>li{
+		&::before {
+			display:inline-block;
+			content: "";
+			margin-right: 0.4rem;
+			background-image: url($bg-image-4);
+			background-size: contain;
+			background-repeat:no-repeat ;
+			text-align: center;
+			width: 1.4rem;
+			height: 1.4rem;
+			font-size:0.8rem;
+			font-weight: bold;
+			float:left;
+		}
 	}
 
 	ol>li {
@@ -259,14 +269,25 @@ main {
 			overflow: hidden;
 			background-color: rgb(248 250 252);
 			font-family:'ZCOOL KuaiLe', 'Noto Sans SC', sans-serif;
-			font-size: 2rem;
 			font-weight: 400 ;
 			padding: 0.5rem;
 			margin: 1rem 0;
 			padding-right: 1rem;
 			box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
 			z-index:10;
+			font-size: 10rem;
 
+			@if $index == 1 {
+				font-size: 3rem;
+			} @else if $index == 2 {
+				font-size: 2.5rem;
+			} @else if $index == 3 {
+				font-size: 2rem;
+			} @else if $index == 4{
+				font-size: 1.5rem;
+			}
+
+			
 			&:hover {
 				white-space: normal;
 			}
@@ -295,7 +316,7 @@ main {
 				display:flex;
 				flex-flow:row nowrap;
 				margin-left: auto;
-				font-size: 1rem;
+				font-size: 0.5em;
 				span{
 					&:nth-of-type(n+4){
 						white-space:nowrap;
@@ -400,6 +421,7 @@ main {
 	&>p{
 		display: none;
 	}
+
 }
 
 blockquote {
@@ -424,5 +446,12 @@ blockquote p {
 }
 
 
+#postamble{
+	margin-top: auto;
+	.validation{
+		display:none;
+	}
+}
 
 
+@import "./media.scss";
