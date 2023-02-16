@@ -35,20 +35,13 @@ ul,ol {
 	list-style-type: none;
 	margin: 0px;
 	padding: 0px;
-
-	li {
-		p {
-			display: inline-block;
-			margin: 0px;
-			padding: 0px;
-		}
-	}
 }
 
 h1,h2,h3,h4,h5,h6{
 	padding: 0px;
 	margin: 0px;
 }
+
 
 table {
 	padding: 1rem;
@@ -220,8 +213,7 @@ main {
 		display:flex;
 		flex-flow:column wrap;
 		margin-left: 0;
-		padding-left: 0;
-
+		padding-left: 2rem;
 		ul,ol{
 			margin-left: 2rem;
 		}
@@ -229,42 +221,52 @@ main {
 		li {
 			margin: .2rem 0;
 			padding: .2rem .2rem;
+			position: relative;
+			li>p:nth-child(1){
+				margin-top: 0;
+			}
 		}
 	}
 
 	ul>li{
 		&::before {
-			display:inline-block;
+			display:flex;
+			justify-content:center;
+			align-items:center;
 			content: "";
-			margin-right: 0.4rem;
 			background-image: url($bg-image-4);
 			background-size: contain;
 			background-repeat:no-repeat ;
 			text-align: center;
-			width: 1.4rem;
-			height: 1.4rem;
+			width: 1rem;
+			height: 1rem;
 			font-size:0.8rem;
 			font-weight: bold;
 			float:left;
+			position:absolute;
+			margin-left: -1rem;
+			margin-top: 0.2rem;
 		}
 	}
 
 	ol>li {
-		counter-increment: list-item;
+		/* counter-increment: list-item; */
 		&::before {
-			display:inline-block;
+			display:flex;
+			justify-content: center;
+			align-items: center;
 			content: counter(list-item);
-			margin-right: 0.4rem;
 			background-image: url($bg-image-3);
 			background-size: contain;
 			background-repeat:no-repeat ;
 			text-align: center;
-			line-height:1.8rem;
 			width: 1.8rem;
 			height: 1.8rem;
 			font-size:0.8rem;
 			font-weight: bold;
-			transform: scale(1.2);
+			position:absolute;
+			margin-left: -1.8rem;
+			margin-top: -0.1rem;
 		}
 	}
 
