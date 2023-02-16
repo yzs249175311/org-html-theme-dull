@@ -2,9 +2,6 @@
 @import "./svg.scss";
 
 $bd-color: #e5e7eb;
-$nav-bg-color: red;
-$nav-node-bg-color: blue;
-
 
 :root,body{
 	box-sizing: border-box;
@@ -15,8 +12,11 @@ $nav-node-bg-color: blue;
 }
 
 body {
-	width: 90vw;
-	overflow: hidden auto;
+	display:flex;
+	flex-flow:column nowrap;
+	align-items: stretch;
+	width: 80vw;
+	height: 100vh;
 }
 
 ::-webkit-scrollbar {
@@ -88,13 +88,23 @@ table {
 }
 
 header {
-	margin: 0 auto;
-	padding-top: 2rem;
-
+	display:flex;
+	flex:0;
+	flex-flow:column nowrap;
+	align-items: stretch;
+	padding-top: 1rem;
 	.title {
-		display: block;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		font-size: 3rem;
-		padding: 1rem;
+		padding: 0.5rem;
+		transition:margin-top ease 250ms ,
+				   visibility ease 250ms ;
+		&.hidden{
+			visibility: hidden;
+			margin-top: -7rem;
+		}
 	}
 	nav{
 		display: flex;
@@ -128,7 +138,7 @@ main {
 	top:0;
 	flex:1;
 	box-sizing: border-box;
-	padding: 0px 2rem;
+	padding: 0px 1rem;
 
 	.outline-2{
 		display: none;
@@ -335,7 +345,7 @@ main {
 	flex:0.3;
 	flex-direction: column;
 	border-left: 1px solid $bd-color;
-	padding: 1rem;
+	padding: 0.5rem;
 	padding-top: 0;
 	transform: translateX(0%);
 	transition: all ease 150ms;
@@ -368,56 +378,60 @@ main {
 		margin-bottom: 1rem;
 	}
 
-	& ul,& ol{
-		list-style: inside;
-		list-style-type: none;
-		margin-left: 0;
-		padding-left: 0;
-		ul,ol {
-			margin-left: 2rem;
-			a {
-				display: flex;
-				align-items: center;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
+	#text-table-of-contents{
+		flex:1;
+		border-bottom:2px solid $bd-color;
+		& ul,& ol {
+			list-style: inside;
+			list-style-type: none;
+			margin-left: 0;
+			padding-left: 0;
+			ul,ol {
+				margin-left: 2rem;
+				a {
+					display: flex;
+					align-items: center;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
 
-				&>span:nth-child(1):not(.tag) {
-					margin: 0 0.2rem;
-					margin-bottom: -0.2rem;
-				}
+					&>span:nth-child(1):not(.tag) {
+						margin: 0 0.2rem;
+						margin-bottom: -0.2rem;
+					}
 
-				.tag {
-					display:flex;
-					flex-flow:row nowrap;
-					margin-left: auto;
-					transform: scale(0.8);
-					background-color: transparent;
-					span {
+					.tag {
 						display:flex;
 						flex-flow:row nowrap;
-						margin: 0px;
-						padding: 0.1rem;
+						margin-left: auto;
+						transform: scale(0.8);
+						background-color: transparent;
+						span {
+							display:flex;
+							flex-flow:row nowrap;
+							margin: 0px;
+							padding: 0.1rem;
 
-						/* 最多显示三个标签 */
-						&:nth-child(n+4){
-							display: none;
+							/* 最多显示三个标签 */
+							&:nth-child(n+4){
+								display: none;
+							}
 						}
 					}
 				}
 			}
 		}
 	}
+
 }
 
 #content {
 	display:flex;
-	position: sticky;
-	height: 100vh;
+	flex: 1;
 	top:0;
+	height: 10vw;
 	flex-flow: row-reverse nowrap;
 	overflow: hidden;
-
 	&>p{
 		display: none;
 	}

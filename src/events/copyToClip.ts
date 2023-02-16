@@ -1,4 +1,5 @@
-export default (function(){
+//代码复制按钮
+export default function copyToClip(){
 	let srcBlock = document.querySelectorAll("pre")
 	srcBlock.forEach( (item:HTMLPreElement) => {
 		let span = document.createElement("span")
@@ -18,4 +19,4 @@ export default (function(){
 				})
 		})
 	})
-})();
+};

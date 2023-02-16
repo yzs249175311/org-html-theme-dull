@@ -1,4 +1,4 @@
-export default function(){
+export default function layout(){
 	let content = document.querySelector("#content")
 	let title = document.querySelector("#content>h1.title")!
 

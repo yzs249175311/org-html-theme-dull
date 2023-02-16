@@ -1,9 +1,19 @@
 import './style.css'
 import './assets/css/style.scss'
 
-import layout from './layout'
-import control from './control'
-import './copy_to_clip'
+import { Dull } from "./Dull"
+import layout from './layouts/layout'
+import control from './events/control'
+import copyToClip from './events/copyToClip'
+import hideTitle from './events/hideTitle'
 
-layout()
-control().init()
+let dull = new Dull ({
+	layouts:[layout],
+	events:[
+		control.navEvent,
+		copyToClip,
+		hideTitle
+	]
+})
+
+dull.start()
