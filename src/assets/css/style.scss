@@ -189,6 +189,7 @@ main {
 			position: relative;
 			overflow: auto;
 		}
+
 		&.example::before {
 			content:"example";
 			display: none;
@@ -209,20 +210,15 @@ main {
 		text-decoration: underline;
 	}
 
-	div>ul,div>ol {
+	div ul,div ol {
 		display:flex;
 		flex-flow:column wrap;
-		margin-left: 0;
-		padding-left: 2rem;
-		ul,ol{
-			margin-left: 2rem;
-		}
 
 		li {
 			margin: .2rem 0;
-			padding: .2rem .2rem;
+			padding: 0.2rem 2rem;
 			position: relative;
-			li>p:nth-child(1){
+			&>p:nth-child(1){
 				margin-top: 0;
 			}
 		}
@@ -238,14 +234,17 @@ main {
 			background-size: contain;
 			background-repeat:no-repeat ;
 			text-align: center;
-			width: 1rem;
-			height: 1rem;
+			width: 1.4rem;
+			height: 1.4rem;
 			font-size:0.8rem;
 			font-weight: bold;
 			float:left;
 			position:absolute;
-			margin-left: -1rem;
-			margin-top: 0.2rem;
+			margin-left: -1.5rem;
+		}
+
+		&>p:nth-child(1){
+			margin: 0;
 		}
 	}
 
@@ -253,10 +252,11 @@ main {
 		/* counter-increment: list-item; */
 		&::before {
 			display:flex;
+			color: #C5D5F8;
 			justify-content: center;
 			align-items: center;
 			content: counter(list-item);
-			background-image: url($bg-image-3);
+			background-image: url($bg-image-5);
 			background-size: contain;
 			background-repeat:no-repeat ;
 			text-align: center;
