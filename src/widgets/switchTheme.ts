@@ -25,6 +25,5 @@ export default function switchTheme(){
 	}
 
 	theme.setAttribute("theme",themeList[themeIndex])
-
-	
+	html.setAttribute("theme",themeList[themeIndex])
 }

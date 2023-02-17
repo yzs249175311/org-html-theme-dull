@@ -8,6 +8,7 @@
 	$pre-bg-color: #8881,
 	$code-color:rgb(239 68 68),
 
+	$tag-bg-color:#3c774288,
 	$nav-node-color-active: #fff,
 	$nav-node-bg-color-active: #000,
 
@@ -30,7 +31,8 @@
 	}
 
 	.tag{
-		background-color: transparent;
+		span {
+		}
 	}
 
 	header {
@@ -75,6 +77,17 @@
 			}
 		}
 
+		
+		@for $index from 1 through 6{
+			h#{$index}{
+				.tag{
+					background-color: transparent;
+					span {
+						background-color: $tag-bg-color;
+					}
+				}
+			}
+		}
 
 	}
 
