@@ -4,6 +4,7 @@
 
 :root {
 	font-family: 'Noto Sans SC', sans-serif;
+	transition: color-scheme ease 2s;
 }
 
 .title  { text-align: center;
@@ -46,7 +47,9 @@ pre.src:before {
 	right: 12px;
 	padding: 3px;
 	color: #555;
-	background-color: #f2f2f299;
+}
+pre.example:before {
+	color: #555;
 }
 pre.src:hover:before { display: inline; margin-top: 14px;}
 /* Languages per Org manual */

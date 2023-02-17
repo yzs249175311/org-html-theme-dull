@@ -13,6 +13,5 @@ export default function hideTitle(){
 			title.classList.remove("hidden")
 			hidden = false;
 		}
-		console.log(sTop)
 	})
 }
