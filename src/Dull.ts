@@ -1,5 +1,6 @@
 export interface DullOption{
 	layouts?:Function[];
+	widgets?:Function[];
 	events?:Function[];
 }
 

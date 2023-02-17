@@ -10,14 +10,21 @@ export default function switchTheme(){
 	]
 
 	theme.classList.add("theme")
-	theme.setAttribute("theme",themeList[themeIndex])
+
 	theme.addEventListener("click",()=>{
 		themeIndex = ++themeIndex%themeList.length
 		theme.setAttribute("theme",themeList[themeIndex])
-		console.log(themeList[themeIndex])
-		html.className = themeList[themeIndex]
+		html.setAttribute("theme",themeList[themeIndex])
 	})
-
 	nav.appendChild(theme)
 
+	//匹配系统主题,如果是dark,自动切换
+	const themeMedia = window.matchMedia("(prefers-color-scheme: dark)");
+	if(themeMedia.matches){
+		themeIndex=1
+	}
+
+	theme.setAttribute("theme",themeList[themeIndex])
+
+	
 }

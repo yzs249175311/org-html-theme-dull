@@ -1,0 +1,30 @@
+@import './template.scss';
+// @include theme-tamplate(
+// 	$text-color:#fffc,
+// 	$hover-text-color: #EF6461,
+// );
+
+
+html[theme=dark]{
+	color-scheme:dark;
+	@include theme-template(
+		$bd-color:#8888,
+		$text-color: #DCE1DE,
+		$hover-text-color: #EF6461,
+		$code-color:rgb(239 68 68),
+
+		$nav-node-color-active: #Ef6461,
+		$nav-node-bg-color-active: #000,
+
+		$list-item-color: #3c5c5c,
+		$link-color: #3c9c9c,
+	);
+
+	main {
+		ol>li{
+			&::before{
+				background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+			}
+		}
+	}
+}

@@ -1,0 +1,136 @@
+@mixin theme-template(
+	$text-color: initial,
+	$bd-color:#888c,
+	$bg-color: #fff0,
+	$bg-thumb-color: #888c,
+
+	$hover-text-color: #3C6742,
+	$pre-bg-color: #8881,
+	$code-color:rgb(239 68 68),
+
+	$nav-node-color-active: #fff,
+	$nav-node-bg-color-active: #000,
+
+	$shadow-color: #0000,
+	$list-item-color: #fff,
+	$list-item-bg-color: #000c,
+
+	$link-color: blue,
+) {
+
+	color: $text-color;
+	background-color:$bg-color;
+
+	::-webkit-scrollbar {
+		background-color: transparent;
+	}
+
+	::-webkit-scrollbar-thumb{
+		background-color: $bg-thumb-color;
+	}
+
+	.tag{
+		background-color: transparent;
+	}
+
+	header {
+		nav{
+			border-color:$bd-color;
+
+			.nav-node {
+				border-color:$bd-color;
+				background-color: $bg-color;
+				color: $text-color;
+				&.active{
+					color: $nav-node-color-active;
+					background-color: $nav-node-bg-color-active;
+				}
+			}
+			.theme {
+				border-color: $bd-color;
+			}
+		}
+	}
+
+	main {
+		code:not(table code){
+			color: $code-color;
+		}
+
+		pre {
+			border-color: $bd-color;
+			background-color: $pre-bg-color;
+			box-shadow: 0 1px 3px 0 $shadow-color, 0 1px 2px -1px $shadow-color;
+		}
+
+		a {
+			color: $link-color;
+		}
+
+		ol>li {
+			/* counter-increment: list-item; */
+			&::before {
+				color:$list-item-color;
+				background-color: $list-item-bg-color;
+			}
+		}
+
+
+	}
+
+
+	#table-of-contents {
+		border-color: $bd-color;
+
+		a{
+			color: currentcolor;
+			&:link,&:visited,&:active{
+
+			}
+			&:hover{
+				color: $hover-text-color;
+			}
+		}
+
+		/* &:hover{ */
+		/* 	flex:1; */
+		/* } */
+
+		h2 {
+			border-color:$bd-color;
+		}
+
+		#text-table-of-contents{
+			border-color:$bd-color;
+			& ul,& ol {
+				ul,ol {
+					a {
+						&>span:nth-child(1):not(.tag) {
+
+						}
+
+						.tag {
+							background-color: $bg-color;
+							span {
+								/* 最多显示三个标签 */
+								&:nth-child(n+4){
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+
+	blockquote {
+		background: $pre-bg-color;
+		border-color: $bd-color;
+		box-shadow: 0 0 5px $shadow-color;
+		&:before {
+			color: $bd-color;
+		}
+	}
+}

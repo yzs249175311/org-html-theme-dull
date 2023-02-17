@@ -1,0 +1,7 @@
+@import './template.scss';
+
+html[theme=light],html{
+	@include theme-template(
+		$bg-color:#F8F9FA,
+	);
+}
