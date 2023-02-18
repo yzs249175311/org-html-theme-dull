@@ -17,6 +17,8 @@
 	$list-item-bg-color: #000c,
 
 	$link-color: blue,
+
+	$toc-current-color: rgb(239 68 68),
 ) {
 
 	color: $text-color;
@@ -116,22 +118,25 @@
 		#text-table-of-contents{
 			border-color:$bd-color;
 			& ul,& ol {
-				ul,ol {
-					a {
-						&>span:nth-child(1):not(.tag) {
+				a {
+					&.current{
+						color:$toc-current-color;
+					}
 
-						}
+					&>span:nth-child(1):not(.tag) {
 
-						.tag {
-							background-color: $bg-color;
-							span {
-								/* 最多显示三个标签 */
-								&:nth-child(n+4){
-								}
+					}
+
+					.tag {
+						background-color: $bg-color;
+						span {
+							/* 最多显示三个标签 */
+							&:nth-child(n+4){
 							}
 						}
 					}
 				}
+
 			}
 		}
 

@@ -8,6 +8,7 @@ import switchTheme from './widgets/switchTheme'
 import control from './events/control'
 import copyToClip from './events/copyToClip'
 import hideTitle from './events/hideTitle'
+import { scrollWithTocInit } from './events/scrollWithToc'
 
 let dull = new Dull ({
 	layouts:[layout,preTopBlock],
@@ -15,7 +16,8 @@ let dull = new Dull ({
 	events:[
 		control.navEvent,
 		copyToClip,
-		hideTitle
+		hideTitle,
+		scrollWithTocInit,
 	]
 })
 
