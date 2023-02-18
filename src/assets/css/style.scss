@@ -9,6 +9,7 @@
 	position: relative;
 	width: 80vw;
 	height: 100vh;
+	transition:all ease-out 400ms;
 }
 
 body {
@@ -20,6 +21,7 @@ body {
 	padding: 0px;
 	height: 100vh;
 	box-sizing: border-box;
+	transition:all ease-out 400ms;
 }
 
 ::-webkit-scrollbar {

@@ -9,15 +9,19 @@ html[theme=dark]{
 	color-scheme:dark;
 	@include theme-template(
 		$bd-color:#8888,
+		$bg-color:#121317,
 		$text-color: #DCE1DE,
 		$hover-text-color: #EF6461,
 		$code-color:rgb(239 68 68),
 
 		$nav-node-color-active: #Ef6461,
-		$nav-node-bg-color-active: #000,
+		$nav-node-bg-color-active: #1B1C22,
 
 		$list-item-color: #3c5c5c,
 		$link-color: #3c9c9c,
+
+		$toc-current-color: #118DD0,
+
 	);
 
 	main {

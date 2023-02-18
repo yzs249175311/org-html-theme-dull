@@ -36,10 +36,10 @@
 	header {
 		nav{
 			border-color:$bd-color;
-
+			background-color: transparent;
 			.nav-node {
 				border-color:$bd-color;
-				background-color: $bg-color;
+				background-color: transparent;
 				color: $text-color;
 				&.active{
 					color: $nav-node-color-active;
@@ -126,7 +126,7 @@
 					}
 
 					.tag {
-						background-color: $bg-color;
+						background-color: transparent;
 						span {
 							/* 最多显示三个标签 */
 							&:nth-child(n+4){
