@@ -1,4 +1,7 @@
 @media screen and (max-width: 1000px){
+	:root{
+		width: 90vw;
+	}
 	#table-of-contents {
 		display:none;
 	}
