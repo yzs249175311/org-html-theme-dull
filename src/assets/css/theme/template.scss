@@ -32,10 +32,6 @@
 		background-color: $bg-thumb-color;
 	}
 
-	.tag{
-		span {
-		}
-	}
 
 	header {
 		nav{
@@ -57,6 +53,14 @@
 	}
 
 	main {
+
+		.tag{
+			background-color: transparent;
+			span {
+				background-color: $tag-bg-color;
+			}
+		}
+
 		code:not(table code){
 			color: $code-color;
 		}
@@ -82,12 +86,6 @@
 		
 		@for $index from 1 through 6{
 			h#{$index}{
-				.tag{
-					background-color: transparent;
-					span {
-						background-color: $tag-bg-color;
-					}
-				}
 			}
 		}
 

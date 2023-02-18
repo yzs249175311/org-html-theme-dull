@@ -58,10 +58,16 @@ table {
 }
 
 .tag{
-	display: flex;
+	display:flex;
+	flex-flow:row nowrap;
 	align-items: center;
-	overflow: hidden auto;
+	font-size: 0.5em;
+	width: max-content;
+	margin-top: 0.5rem;
+
 	&>span {
+		padding: 0.3em 0.5em;
+		border-radius: 9999px;
 		display: flex;
 		align-items: center;
 		
@@ -146,6 +152,19 @@ main {
 		&.active{
 			display: block;
 		}
+	}
+
+	.tag {
+		display:flex;
+		flex-flow:row nowrap;
+		font-size: 0.5em;
+		width: max-content;
+		margin-top: 0.5rem;
+		span{
+			padding: 0.3em 0.5em;
+			border-radius: 9999px;
+		}
+
 	}
 
 	code:not(table code){
@@ -340,22 +359,6 @@ main {
 				margin-bottom: -0.2rem;
 			}
 
-			.tag {
-				display:flex;
-				flex-flow:row nowrap;
-				font-size: 0.5em;
-				width: max-content;
-				margin-top: 0.5rem;
-				span{
-					padding: 0.3em 0.5em;
-					border-radius: 9999px;
-					/* &:nth-of-type(n+4){ */
-					/* 	white-space:nowrap; */
-					/* 	text-indent: -9999px */
-					/* } */
-				}
-
-			}
 		}
 	}
 
