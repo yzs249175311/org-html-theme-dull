@@ -123,19 +123,7 @@ header {
 			user-select: none;
 		}
 
-		.theme {
-			display: flex;
-			align-items: center;
-			border-radius: 0.4rem 0.4rem 0 0;
-			margin-left: auto;
-			border:1px solid ;
-			border-bottom: 0;
-			padding: 0.2rem 0.5rem;
-			cursor: pointer;
-			&::before {
-				content: attr(theme);
-			}
-		}
+		@import "./module/switchTheme.scss"
 	}
 }
 
