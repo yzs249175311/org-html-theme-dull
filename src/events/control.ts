@@ -18,15 +18,15 @@ export default (function(){
 
 		function setActive(index:number){
 			currentIndex = index
-			contentList[index].classList.add("active")
-			tableOfContentsList[index].classList.add("active")
-			navNodeList[index].classList.add("active")
+			contentList[index]?.classList.add("active")
+			tableOfContentsList[index]?.classList.add("active")
+			navNodeList[index]?.classList.add("active")
 		}
 
 		function cancelActive(){
-			contentList[currentIndex].classList.remove("active")
-			tableOfContentsList[currentIndex].classList.remove("active")
-			navNodeList[currentIndex].classList.remove("active")
+			contentList[currentIndex]?.classList.remove("active")
+			tableOfContentsList[currentIndex]?.classList.remove("active")
+			navNodeList[currentIndex]?.classList.remove("active")
 		}
 
 		init()

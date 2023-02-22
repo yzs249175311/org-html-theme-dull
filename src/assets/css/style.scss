@@ -2,12 +2,14 @@
 @import "./theme/index.scss";
 
 :root{
+	display:flex;
+	align-items:center;
+	justify-content:center;
 	box-sizing: border-box;
 	scroll-behavior: smooth;
 	margin: 0 auto;
 	padding: 0px;
 	position: relative;
-	width: 80vw;
 	height: 100vh;
 	transition:all ease-out 400ms;
 }
@@ -19,6 +21,7 @@ body {
 	box-sizing: border-box;
 	margin: 0px;
 	padding: 0px;
+	width: 80vw;
 	height: 100vh;
 	box-sizing: border-box;
 	transition:all ease-out 400ms;
@@ -353,12 +356,11 @@ main {
 
 #table-of-contents {
 	display: flex;
-	flex:0.3;
+	flex:0.3 0;
 	flex-direction: column;
 	border-left: 1px solid ;
 	padding: 0.5rem;
 	padding-top: 0;
-	transform: translateX(0%);
 	box-sizing: border-box;
 	overflow: hidden auto;
 
@@ -442,6 +444,7 @@ main {
 	height: 10vw;
 	flex-flow: row-reverse nowrap;
 	overflow: hidden;
+	position: relative;
 	&>p{
 		display: none;
 	}

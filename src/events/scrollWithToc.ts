@@ -11,12 +11,14 @@ let currentEntry:HTMLLinkElement|null = null
 
 //设置目录中当前得标题
 function setCurrentHeadInToc(el:string){
-	let elm = toc!.querySelector(`a[href="#${el}"]`)! as HTMLLinkElement
-	if (currentEntry){
-		currentEntry.classList.remove("current")
+	if(toc){
+		let elm = toc!.querySelector(`a[href="#${el}"]`)! as HTMLLinkElement
+		if (currentEntry){
+			currentEntry.classList.remove("current")
+		}
+		currentEntry = elm
+		currentEntry.classList.add("current")
 	}
-	currentEntry = elm
-	currentEntry.classList.add("current")
 }
 
 
