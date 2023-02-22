@@ -52,6 +52,18 @@
 		background-color: $text-surface2;
 	}
 
+	.underline{
+		text-decoration-color: $brand;
+	}
+
+	del{
+		text-decoration-color: $brand;
+	}
+
+	table {
+		color: text-surface2;
+	}
+
 
 	header {
 		border-color:$bd-color;
@@ -98,7 +110,8 @@
 		}
 
 		a {
-			color: $link-color;
+			color: $brand;
+			text-decoration-color: $brand;
 		}
 
 		ul>li{

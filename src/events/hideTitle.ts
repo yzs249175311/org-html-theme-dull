@@ -6,11 +6,17 @@ export default function hideTitle(){
 	let hidden:boolean = false;
 	main.addEventListener("scroll",(e:Event)=>{
 		let sTop = (e.currentTarget as HTMLDivElement).scrollTop
-		if(sTop >= 100 && !hidden){
-			title.classList.add("hidden")
+		//条件判断的值可以设置的大一点
+		if(sTop >= 200 && !hidden){
+			//设置回调,防止隐藏title后,因为内容不够，sTop的值发生改变造成屏幕抖动
+			setTimeout(()=>{
+				title.classList.add("hidden")
+			},400)
 			hidden = true;
-		}else if(sTop<100 && hidden){
-			title.classList.remove("hidden")
+		}else if(sTop<200 && hidden){
+			setTimeout(()=>{
+				title.classList.remove("hidden")
+			},400)
 			hidden = false;
 		}
 	})
