@@ -1,27 +1,34 @@
 @import './template.scss';
-// @include theme-tamplate(
-// 	$text-color:#fffc,
-// 	$hover-text-color: #EF6461,
-// );
-
-
 html[theme=dark]{
 	color-scheme:dark;
+
+	$brand-hue: 200;
+	$brand-saturation: 100%;
+	$brand-lightness: 50%;
+	$brand-dark: hsl($brand-hue calc($brand-saturation / 2) calc($brand-lightness / 1.5));
+	$text-surface1-dark: hsl($brand-hue 15% 85%);
+	$text-surface2-dark: hsl($brand-hue 5% 65%);
+	$bg-surface1-dark: hsl($brand-hue 10% 10%);
+	$bg-surface2-dark: hsl($brand-hue 10% 15%);
+	$bg-surface3-dark: hsl($brand-hue 5%  20%);
+	$bg-surface4-dark: hsl($brand-hue 5% 25%);
+	$surface-shadow-dark: $brand-hue 50% 3%;
+	$shadow-strength-dark: 0.08;
+
+	$bd-color-dark: hsl($brand-hue 10% #{lightness($bg-surface1-dark)+10%} / 0.10);
+
 	@include theme-template(
-		$bd-color:#8888,
-		$bg-color:#121317,
-		$text-color: #DCE1DE,
-		$hover-text-color: #EF6461,
-		$code-color:rgb(239 68 68),
+		$brand: $brand-dark,
+		$text-surface1: $text-surface1-dark,
+		$text-surface2: $text-surface2-dark,
+		$bg-surface1: $bg-surface1-dark,
+		$bg-surface2: $bg-surface2-dark,
+		$bg-surface3: $bg-surface3-dark,
+		$bg-surface4: $bg-surface4-dark,
+		$surface-shadow: $surface-shadow-dark,
+		$shadow-strength: $shadow-strength-dark,
 
-		$nav-node-color-active: #Ef6461,
-		$nav-node-bg-color-active: #1B1C22,
-
-		$list-item-color: #3c5c5c,
-		$link-color: #3c9c9c,
-
-		$toc-current-color: #118DD0,
-
+		$bd-color:$bd-color-dark,
 	);
 
 	main {

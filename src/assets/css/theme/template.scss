@@ -1,59 +1,85 @@
+@mixin shadow-template($surface-shadow,$shadow-strength){
+	box-shadow:
+	0 2.8px 2.2px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.03)),
+	0 6.7px 5.3px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.01)),
+	0 12.5px 10px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.02)),
+	0 22.3px 17.9px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.02)),
+	0 41.8px 33.4px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.03)),
+	0 100px 120px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / $shadow-strength),
+}
+
 @mixin theme-template(
-	$text-color: initial,
-	$bd-color:#888c,
-	$bg-color: #fff0,
-	$bg-thumb-color: #888c,
+	$brand-hue: 200,
+	$brand-saturation: 100%,
+	$brand-lightness: 50%,
 
-	$hover-text-color: #3C6742,
-	$pre-bg-color: #8881,
+	$brand: hsl($brand-hue $brand-saturation calc($brand-lightness - 20%)),
+
+	$text-surface1: hsl($brand-hue $brand-saturation 10%),
+	$text-surface2: hsl($brand-hue 30% 30%),
+
+	$bg-surface1: hsl($brand-hue 25% 90%),
+	$bg-surface2: hsl($brand-hue 20% 99%),
+	$bg-surface3: hsl($brand-hue 20% 92%),
+	$bg-surface4: hsl($brand-hue 20% 85%),
+
+	$surface-shadow: $brand-hue 10% 20%,
+	$shadow-strength: .02,
+
+	$bd-color: hsl($brand-hue 25% #{lightness($bg-surface1)-10%} / 0.20),
 	$code-color:rgb(239 68 68),
-
 	$tag-bg-color:#3c774288,
+
 	$nav-node-color-active: #fff,
 	$nav-node-bg-color-active: #000,
 
-	$shadow-color: #0000,
 	$list-item-color: #fff,
 	$list-item-bg-color: #000c,
 
 	$link-color: blue,
 
-	$toc-current-color: rgb(239 68 68),
+	$toc-current-color: #2E58FF,
 ) {
 
-	color: $text-color;
-	background-color:$bg-color;
+	color: $text-surface2;
+	background-color:$bg-surface1;
 
 	::-webkit-scrollbar {
 		background-color: transparent;
 	}
 
 	::-webkit-scrollbar-thumb{
-		background-color: $bg-thumb-color;
+		background-color: $text-surface2;
 	}
 
 
 	header {
+		border-color:$bd-color;
+		.title {
+			color: $text-surface1;
+		}
 		nav{
-			border-color:$bd-color;
+			border-color: $bg-surface1;
 			background-color: transparent;
+			@include shadow-template($surface-shadow,$shadow-strength);
 			.nav-node {
-				border-color:$bd-color;
+				border-color: $bd-color;
 				background-color: transparent;
-				color: $text-color;
+				@include shadow-template($surface-shadow,$shadow-strength);
 				&.active{
-					color: $nav-node-color-active;
-					background-color: $nav-node-bg-color-active;
+					color: $bg-surface1;
+					background-color: $text-surface1;
 				}
 			}
-			.theme {
+			.switchTheme {
 				border-color: $bd-color;
+				@include shadow-template($surface-shadow,$shadow-strength+0.1);
 			}
 		}
 	}
 
 	main {
-
+		@include shadow-template($surface-shadow,$shadow-strength);
 		.tag{
 			background-color: transparent;
 			span {
@@ -66,13 +92,20 @@
 		}
 
 		pre {
-			border-color: $bd-color;
-			background-color: $pre-bg-color;
-			box-shadow: 0 1px 3px 0 $shadow-color, 0 1px 2px -1px $shadow-color;
+			border-color: $bg-surface4;
+			background-color: $bg-surface3;
+			@include shadow-template($surface-shadow,$shadow-strength)
 		}
 
 		a {
 			color: $link-color;
+		}
+
+		ul>li{
+			&::marker{
+				color: $brand;
+				@include shadow-template($surface-shadow,$shadow-strength);
+			}
 		}
 
 		ol>li {
@@ -80,12 +113,17 @@
 			&::before {
 				color:$list-item-color;
 				background-color: $list-item-bg-color;
+				@include shadow-template($surface-shadow,$shadow-strength);
 			}
+
 		}
 
 		
 		@for $index from 1 through 6{
 			h#{$index}{
+				border-color:$bd-color;
+				color: $text-surface1;
+				@include shadow-template($surface-shadow,$shadow-strength);
 			}
 		}
 
@@ -93,15 +131,16 @@
 
 
 	#table-of-contents {
-		border-color: $bd-color;
+		border-color: $bg-surface4;
 
+		@include shadow-template($surface-shadow,$shadow-strength);
 		a{
 			color: currentcolor;
 			&:link,&:visited,&:active{
 
 			}
 			&:hover{
-				color: $hover-text-color;
+				color: $brand;
 			}
 		}
 
@@ -110,15 +149,16 @@
 		/* } */
 
 		h2 {
-			border-color:$bd-color;
+			color:$text-surface1;
+			border-color:$bg-surface4;
 		}
 
 		#text-table-of-contents{
-			border-color:$bd-color;
+			border-color:$bg-surface4;
 			& ul,& ol {
 				a {
 					&.current{
-						color:$toc-current-color;
+						color: $brand;
 					}
 
 					&>span:nth-child(1):not(.tag) {
@@ -142,11 +182,11 @@
 
 
 	blockquote {
-		background: $pre-bg-color;
-		border-color: $bd-color;
-		box-shadow: 0 0 5px $shadow-color;
+		background: $bg-surface3;
+		border-color: $bg-surface4;
+		@include shadow-template($surface-shadow,$shadow-strength);
 		&:before {
-			color: $bd-color;
+			color: $bg-surface4;
 		}
 	}
 }

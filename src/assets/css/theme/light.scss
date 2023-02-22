@@ -1,8 +1,5 @@
 @import './template.scss';
 
 html[theme=light],html{
-	@include theme-template(
-		$bg-color:#F8F9FA,
-		$toc-current-color: #2E58FF,
-	);
+	@include theme-template();
 }

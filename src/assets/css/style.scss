@@ -36,7 +36,7 @@ body {
 
 ul,ol {
 	list-style: inside;
-	list-style-type: none;
+	list-style-type: decimal;
 	margin: 0px;
 	padding: 0px;
 }
@@ -90,6 +90,7 @@ header {
 	flex:0;
 	flex-flow:column nowrap;
 	align-items: stretch;
+	border-width:0 2px 2px 2px;
 	padding-top: 1rem;
 	.title {
 		display: flex;
@@ -105,7 +106,8 @@ header {
 	}
 	nav{
 		display: flex;
-		border-bottom: 1px solid ;
+		border: 2px solid ;
+		border-top: 0;
 		padding: .5rem 2rem 0;
 		flex-flow: row nowrap;
 		overflow: auto hidden;
@@ -114,7 +116,7 @@ header {
 			flex-flow:row nowrap;
 			white-space: nowrap;
 			align-items: center;
-			border: 1px solid ;
+			border: 2px solid ;
 			border-bottom: 0;
 			border-radius: 1rem 1rem 0 0;
 			margin: 0 .3rem;
@@ -246,6 +248,10 @@ main {
 		padding: 0 0.5rem;
 	}
 
+	div>p{
+		padding: 0.5rem 2rem;
+	}
+
 	div ul,div ol {
 		display:flex;
 		flex-flow:column wrap;
@@ -255,28 +261,15 @@ main {
 			padding: 0.2rem 2rem;
 			position: relative;
 			&>p:nth-child(1){
+				display:inline-block;
 				margin-top: 0;
 			}
 		}
 	}
 
 	ul>li{
-		&::before {
-			display:flex;
-			justify-content:center;
-			align-items:center;
-			content: "";
-			background-image: url($bg-image-4);
-			background-size: contain;
-			background-repeat:no-repeat ;
-			text-align: center;
-			width: 1.4rem;
-			height: 1.4rem;
-			font-size:0.8rem;
-			font-weight: bold;
-			float:left;
-			position:absolute;
-			margin-left: -1.5rem;
+		&::marker{
+			content:"● ";
 		}
 
 		&>p:nth-child(1){
@@ -287,20 +280,20 @@ main {
 	ol>li {
 		/* counter-increment: list-item; */
 		&::before {
-			display:flex;
-			justify-content: center;
-			align-items: center;
-			content: counter(list-item);
-			border-radius: 9999px;
-			background-size: contain;
-			background-repeat:no-repeat ;
-			text-align: center;
-			width: 1.4rem;
-			height: 1.4rem;
-			font-size:0.8rem;
-			font-weight: bold;
-			position:absolute;
-			margin-left: -1.8rem;
+			// display:flex;
+			// justify-content: center;
+			// align-items: center;
+			// content: counter(list-item);
+			// border-radius: 9999px;
+			// background-size: contain;
+			// background-repeat:no-repeat ;
+			// text-align: center;
+			// width: 1.4rem;
+			// height: 1.4rem;
+			// font-size:0.8rem;
+			// font-weight: bold;
+			// position:absolute;
+			// margin-left: -1.8rem;
 		}
 	}
 
@@ -311,12 +304,13 @@ main {
 			top: 0;
 			text-overflow: ellipsis;
 			overflow: hidden;
-			font-family:'ZCOOL KuaiLe', 'Noto Sans SC', sans-serif;
+
 			font-weight: 400 ;
+			border:2px solid;
 			padding: 0.5rem;
 			padding-left: 0;
-			margin: 1rem 0;
 			padding-right: 1rem;
+			margin: 1rem 0;
 			z-index:10;
 
 			@if $index == 1 {
