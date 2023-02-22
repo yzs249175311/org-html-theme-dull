@@ -77,7 +77,7 @@
 			.nav-node {
 				border-color: $bd-color;
 				background-color: transparent;
-				@include shadow-template($surface-shadow,$shadow-strength);
+				@include shadow-template($surface-shadow,$shadow-strength+0.05);
 				&.active{
 					color: $bg-surface1;
 					background-color: $text-surface1;
@@ -85,7 +85,7 @@
 			}
 			.switchTheme {
 				border-color: $bd-color;
-				@include shadow-template($surface-shadow,$shadow-strength+0.1);
+				@include shadow-template($surface-shadow,$shadow-strength+0.05);
 			}
 		}
 	}

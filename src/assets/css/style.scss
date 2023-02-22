@@ -257,9 +257,10 @@ main {
 		flex-flow:column wrap;
 
 		li {
-			margin: .2rem 0;
-			padding: 0.2rem 2rem;
+			margin: 0rem 0;
+			padding: 0rem 2rem;
 			position: relative;
+			line-height: 2rem;
 			&>p:nth-child(1){
 				display:inline;
 				margin-top: 0;
