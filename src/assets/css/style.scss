@@ -70,6 +70,7 @@ table {
 		border-radius: 9999px;
 		display: flex;
 		align-items: center;
+		line-height: initial;
 		
 		&::before {
 			content: "";
@@ -152,7 +153,7 @@ main {
 		flex-flow:row nowrap;
 		font-size: 0.5em;
 		width: max-content;
-		margin-top: 0.5rem;
+		margin-top: 0.1em;
 		span{
 			padding: 0.3em 0.5em;
 			border-radius: 9999px;
@@ -256,11 +257,11 @@ main {
 		display:flex;
 		flex-flow:column wrap;
 
-		li {
+		>li {
 			margin: 0rem 0;
 			padding: 0rem 2rem;
 			position: relative;
-			line-height: 2rem;
+			line-height: 1.5rem;
 			&>p:nth-child(1){
 				display:inline;
 				margin-top: 0;
@@ -409,7 +410,7 @@ main {
 					}
 
 					.tag {
-						display:flex;
+						display:none;
 						flex-flow:row nowrap;
 						align-items: center;
 						margin-left: auto;
