@@ -1,3 +1,5 @@
+import "./switchTheme.scss"
+
 export default function switchTheme(){
 	let nav = document.querySelector("nav")!
 	let theme = document.createElement("span")!
