@@ -169,6 +169,7 @@ function eventInit(){
 
 function unsetAll(){
 	searchResult!.innerHTML = '<div class="serchResult"></div>'
+	searchedItem?.classList.remove("searched-item")
 	closeResult()
 }
 
