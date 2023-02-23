@@ -5,16 +5,17 @@ import { Dull } from "./Dull"
 import layout from './layouts/layout'
 import preTopBlock from './layouts/preTopBlock'
 import switchTheme from './widgets/switchTheme'
-import control from './events/control'
+import {controlInit} from './events/control'
 import copyToClip from './events/copyToClip'
 import hideTitle from './events/hideTitle'
 import { scrollWithTocInit } from './events/scrollWithToc'
+import {globalSearchInit} from './widgets/globalSearch/globalSearch'
 
 let dull = new Dull ({
 	layouts:[layout,preTopBlock],
-	widgets:[switchTheme],
+	widgets:[switchTheme,globalSearchInit],
 	events:[
-		control.navEvent,
+		controlInit,
 		copyToClip,
 		hideTitle,
 		scrollWithTocInit,

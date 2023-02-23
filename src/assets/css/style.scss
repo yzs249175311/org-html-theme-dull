@@ -142,6 +142,7 @@ main {
 	flex:1;
 	box-sizing: border-box;
 	padding: 0px 1rem;
+	overscroll-behavior: none;
 
 	.outline-2{
 		display: none;
@@ -364,6 +365,13 @@ main {
 	box-sizing: border-box;
 	overflow: hidden auto;
 
+	#text-table-of-contents{
+		&.hidden{
+			display: none;
+		}
+	}
+	
+
 	#text-table-of-contents>ul>li{
 		display: none;
 		&.active {
@@ -481,5 +489,5 @@ blockquote {
 	}
 }
 
-
 @import "./media.scss";
+

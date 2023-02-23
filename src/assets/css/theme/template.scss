@@ -74,19 +74,44 @@
 			border-color: $bg-surface1;
 			background-color: transparent;
 			@include shadow-template($surface-shadow,$shadow-strength);
-			.nav-node {
+
+			>:nth-child(n){
 				border-color: $bd-color;
 				background-color: transparent;
 				@include shadow-template($surface-shadow,$shadow-strength+0.05);
+			}
+
+			.nav-node {
 				&.active{
 					color: $bg-surface1;
 					background-color: $text-surface1;
 				}
 			}
+
 			.switchTheme {
 				border-color: $bd-color;
 				@include shadow-template($surface-shadow,$shadow-strength+0.05);
 			}
+
+			.searchCom{
+				.searchInput{
+					background-color: transparent;
+					outline:none;
+					color:$text-surface1;
+					&::placeholder{
+						color:$text-surface2;
+					}
+				}
+				.searchButton{
+					background-color: transparent;
+					outline:none;
+					color:$text-surface2;
+					svg {
+						fill: $text-surface2;
+					}
+				}
+			}
+
 		}
 	}
 
@@ -174,10 +199,6 @@
 						color: $brand;
 					}
 
-					&>span:nth-child(1):not(.tag) {
-
-					}
-
 					.tag {
 						background-color: transparent;
 						span {
@@ -191,6 +212,18 @@
 			}
 		}
 
+		.searchResult{
+			border-color:$bg-surface4;
+			color: $text-surface2;
+			h3{
+				color: $text-surface2;
+			}
+			span{
+				&:hover,&.current{
+					color: $brand;
+				}
+			}
+		}
 	}
 
 
