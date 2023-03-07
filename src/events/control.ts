@@ -1,3 +1,5 @@
+import { defineComponent } from "../Dull";
+
 //给导航按钮添加事件
 let currentIndex:number;
 let contentList:NodeListOf<HTMLDivElement>;
@@ -31,3 +33,9 @@ export function controlInit(){
 		})
 	})
 }
+
+export default defineComponent({
+	name:"control",
+	type:"event",
+	init:controlInit,
+})

@@ -1,5 +1,6 @@
+import { defineComponent } from "../Dull";
 //代码复制按钮
-export default function copyToClip(){
+function copyToClip(){
 	let srcBlock = document.querySelectorAll("pre")
 	srcBlock.forEach( (item:HTMLPreElement) => {
 		let span = document.createElement("span")
@@ -20,3 +21,9 @@ export default function copyToClip(){
 		})
 	})
 };
+
+export default defineComponent({
+	name:"copyToClip",
+	init:copyToClip,
+	type:"event",
+})

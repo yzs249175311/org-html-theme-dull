@@ -1,5 +1,7 @@
+import { defineComponent } from "../Dull";
+
 // 往下滚动时，隐藏title
-export default function hideTitle(){
+function hideTitle(){
 	let title:HTMLDivElement = document.querySelector("header .title")!
 	let main = document.querySelector("main")!
 
@@ -21,3 +23,9 @@ export default function hideTitle(){
 		}
 	})
 }
+
+export default defineComponent({
+	name:"hideTitle",
+	type:"event",
+	init:hideTitle,
+})

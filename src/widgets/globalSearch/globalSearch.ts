@@ -1,3 +1,5 @@
+import { defineComponent } from "../../Dull";
+
 import "../../widgets/globalSearch/globalSearch.scss";
 import { setActive } from "../../events/control";
 let ttc:HTMLDivElement|null = null
@@ -180,4 +182,8 @@ export function globalSearchInit(){
 }
 
 
-export default {}
+export default defineComponent({
+	name:"globalSearch",
+	type:"widget",
+	init:globalSearchInit,
+})

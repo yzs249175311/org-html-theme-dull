@@ -1,6 +1,8 @@
+import { defineComponent } from "../../Dull";
+
 import "./switchTheme.scss"
 
-export default function switchTheme(){
+function switchTheme(){
 	let nav = document.querySelector("nav")!
 	let theme = document.createElement("span")!
 	let html = document.documentElement
@@ -48,3 +50,9 @@ export default function switchTheme(){
 	theme.setAttribute("theme",themeList[themeIndex])
 	html.setAttribute("theme",themeList[themeIndex])
 }
+
+export default  defineComponent({
+	name:"switchTheme",
+	type:"widget",
+	init: switchTheme,
+})

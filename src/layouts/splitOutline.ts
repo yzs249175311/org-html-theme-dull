@@ -1,4 +1,6 @@
-export default function layout(){
+import { defineComponent } from "../Dull";
+
+function splitOutline(){
 	let content = document.querySelector("#content")
 	let title = document.querySelector("#content>h1.title")!
 
@@ -29,3 +31,9 @@ export default function layout(){
 
 	tableOfContents?.appendChild(postamble)
 };
+
+export default defineComponent({
+	name:"splitOutline",
+	type:"layout",
+	init:splitOutline,
+})

@@ -1,4 +1,6 @@
-export default function preTopBlock(){
+import { defineComponent } from "../Dull";
+
+function preTopBlock(){
 	let pres:NodeListOf<HTMLPreElement> = document.querySelectorAll("pre[class^=src]")
 
 	pres.forEach( (item:HTMLPreElement) => {
@@ -14,3 +16,8 @@ export default function preTopBlock(){
 		item.dataset.lang = item.className.match(/src-(\w+)/)![1]
 	})
 }
+export default defineComponent({
+	name:"preTopBlock",
+	type:"layout",
+	init:preTopBlock,
+})

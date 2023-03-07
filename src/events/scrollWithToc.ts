@@ -1,3 +1,5 @@
+import { defineComponent } from "../Dull";
+
 /*
 * 1.监听页面标题，以同步目录对当前标题的高亮
 * 2.监控当前页面控制显示的class属性变化，重新获取页面标题并监听
@@ -117,3 +119,9 @@ export function scrollWithTocInit(){
 	intersectionInit()
 	mutationInit()
 }
+
+export default defineComponent({
+	name:"scrollWithToc",
+	type:"event",
+	init:scrollWithTocInit,
+})
