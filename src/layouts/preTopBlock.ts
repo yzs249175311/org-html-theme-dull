@@ -1,7 +1,7 @@
 import { defineComponent } from "../Dull";
 
 function preTopBlock(){
-	let pres:NodeListOf<HTMLPreElement> = document.querySelectorAll("pre[class^=src]")
+	let pres:NodeListOf<HTMLPreElement> = document.querySelectorAll("pre[class^=src],pre[class^=example]")
 
 	pres.forEach( (item:HTMLPreElement) => {
 		//给显示代码框的头部增加三个圆
