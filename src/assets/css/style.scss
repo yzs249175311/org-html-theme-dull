@@ -121,7 +121,7 @@ header {
 		padding: .5rem 2rem 0;
 		flex-flow: row nowrap;
 		overflow: auto hidden;
-		transition:all ease-out 400ms;
+		transition:border-color ease-out 400ms;
 		.nav-node {
 			display: flex;
 			flex-flow:row nowrap;
@@ -140,7 +140,7 @@ header {
 		}
 
 		&>:nth-child(n){
-			transition:all ease-out 400ms;
+			transition:border ease-out 400ms;
 		}
 	}
 
@@ -191,6 +191,7 @@ main {
 		border:1px solid ;
 		border-radius:1rem;
 		padding-top: rem;
+		transition:all ease-out 400ms;
 
 		.top-block{
 			height: 2rem;
