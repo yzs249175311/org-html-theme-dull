@@ -47,6 +47,7 @@ ul,ol {
 h1,h2,h3,h4,h5,h6{
 	padding: 0px;
 	margin: 0px;
+	transition:all ease-out 400ms;
 }
 
 img {
@@ -59,6 +60,7 @@ table {
 	margin: 1rem;
 	table-layout: auto;
 	thead{
+
 	}
 
 	tbody>tr:nth-of-type(2n){
@@ -119,6 +121,7 @@ header {
 		padding: .5rem 2rem 0;
 		flex-flow: row nowrap;
 		overflow: auto hidden;
+		transition:all ease-out 400ms;
 		.nav-node {
 			display: flex;
 			flex-flow:row nowrap;
@@ -131,8 +134,16 @@ header {
 			padding: .2rem .5rem;
 			cursor:pointer;
 			user-select: none;
+			&.active {
+				transition:all ease-out 400ms;
+			}
+		}
+
+		&>:nth-child(n){
+			transition:all ease-out 400ms;
 		}
 	}
+
 }
 
 main {
@@ -330,7 +341,7 @@ main {
 				font-size: 1.5rem;
 			}
 
-			&::before,
+			&::before
 			{
 				content:"";
 				display:inline-block;
@@ -396,6 +407,7 @@ main {
 		padding:1rem;
 		margin-top: 0;
 		margin-bottom: 1rem;
+		transition:all ease-out 400ms;
 	}
 
 	#text-table-of-contents{

@@ -12,10 +12,17 @@ function preTopBlock(){
 		topBlock.appendChild(document.createElement("span"))
 		item.insertAdjacentElement("afterbegin",topBlock)
 		
+
 		//给pre添加关于它展示的是什么代码的属性
-		item.dataset.lang = item.className.match(/src-(\w+)/)![1]
+		let lang = item.className.match(/(?<=src-)\w+|example/)
+		if(lang){
+			item.dataset.lang = lang[0]
+		}else{
+			item.dataset.lang = "unknow"
+		}
 	})
 }
+
 export default defineComponent({
 	name:"preTopBlock",
 	type:"layout",
