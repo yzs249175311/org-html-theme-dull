@@ -1,11 +1,24 @@
 @mixin shadow-template($surface-shadow,$shadow-strength){
 	box-shadow:
-	0 2.8px 2.2px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.03)),
-	0 6.7px 5.3px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.01)),
-	0 12.5px 10px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.02)),
-	0 22.3px 17.9px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.02)),
-	0 41.8px 33.4px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.03)),
-	0 100px 120px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / $shadow-strength),
+	 2.8px 2.8px 2.2px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.03)),
+	 6.7px 6.7px 5.3px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.01)),
+	 12.5px 12.5px 10px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.02)),
+	 22.3px 22.3px 17.9px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.02)),
+	 41.8px 41.8px 33.4px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.03)),
+	 100px 100px 120px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / $shadow-strength),
+}
+
+@mixin inset-shadow-template($surface-shadow,$inset-surface-shadow,$shadow-strength){
+	box-shadow:
+	 2.8px 2.8px 2.2px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.03)),
+	 6.7px 6.7px 5.3px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.01)),
+	 12.5px 12.5px 10px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.02)),
+	 22.3px 22.3px 17.9px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.02)),
+	 41.8px 41.8px 33.4px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / calc($shadow-strength + 0.03)),
+	 100px 100px 120px hsl(#{nth($surface-shadow,1)} #{nth($surface-shadow,2)} #{nth($surface-shadow,3)} / $shadow-strength),
+
+	inset 2.8px 2.8px 2.2px hsl(#{nth($inset-surface-shadow,1)} #{nth($inset-surface-shadow,2)} #{nth($inset-surface-shadow,3)} / calc($shadow-strength + 0.03)),
+	inset 6.7px 6.7px 5.3px hsl(#{nth($inset-surface-shadow,1)} #{nth($inset-surface-shadow,2)} #{nth($inset-surface-shadow,3)} / calc($shadow-strength + 0.01)),
 }
 
 @mixin theme-template(
@@ -19,12 +32,14 @@
 	$text-surface2: hsl($brand-hue 30% 30%),
 
 	$bg-surface1: hsl($brand-hue 25% 90%),
-	$bg-surface2: hsl($brand-hue 20% 99%),
+	$bg-surface2: hsl($brand-hue 20% 95%),
 	$bg-surface3: hsl($brand-hue 20% 92%),
 	$bg-surface4: hsl($brand-hue 20% 85%),
 
 	$surface-shadow: $brand-hue 10% 20%,
 	$shadow-strength: .02,
+
+	$inset-surface-shadow: $brand-hue 25% 100%,
 
 	$bd-color: hsl($brand-hue 25% #{lightness($bg-surface1)-10%} / 0.20),
 	$code-color:rgb(239 68 68),
@@ -78,7 +93,7 @@
 			>:nth-child(n){
 				border-color: $bd-color;
 				background-color: transparent;
-				@include shadow-template($surface-shadow,$shadow-strength+0.05);
+				@include inset-shadow-template($surface-shadow,$inset-surface-shadow,$shadow-strength+0.05);
 			}
 
 			.nav-node {
@@ -90,7 +105,7 @@
 
 			.switchTheme {
 				border-color: $bd-color;
-				@include shadow-template($surface-shadow,$shadow-strength+0.05);
+				@include inset-shadow-template($surface-shadow,$inset-surface-shadow,$shadow-strength+0.05);
 			}
 
 			.searchCom{
@@ -131,7 +146,7 @@
 		pre {
 			border-color: $bg-surface4;
 			background-color: $bg-surface3;
-			@include shadow-template($surface-shadow,$shadow-strength)
+			@include inset-shadow-template($surface-shadow,$inset-surface-shadow,$shadow-strength)
 		}
 
 		a {
@@ -142,7 +157,7 @@
 		ul>li{
 			&::marker{
 				color: $brand;
-				@include shadow-template($surface-shadow,$shadow-strength);
+				@include inset-shadow-template($surface-shadow,$inset-surface-shadow,$shadow-strength);
 			}
 		}
 
@@ -151,7 +166,7 @@
 			&::before {
 				color:$list-item-color;
 				background-color: $list-item-bg-color;
-				@include shadow-template($surface-shadow,$shadow-strength);
+				@include inset-shadow-template($surface-shadow,$inset-surface-shadow,$shadow-strength);
 			}
 
 		}
@@ -161,7 +176,7 @@
 			h#{$index}{
 				border-color:$bd-color;
 				color: $text-surface1;
-				@include shadow-template($surface-shadow,$shadow-strength);
+				@include inset-shadow-template($surface-shadow,$inset-surface-shadow,$shadow-strength);
 			}
 		}
 
@@ -171,7 +186,7 @@
 	#table-of-contents {
 		border-color: $bg-surface4;
 
-		@include shadow-template($surface-shadow,$shadow-strength);
+		@include inset-shadow-template($surface-shadow,$inset-surface-shadow,$shadow-strength);
 		a{
 			color: currentcolor;
 			&:link,&:visited,&:active{
@@ -230,7 +245,7 @@
 	blockquote {
 		background: $bg-surface3;
 		border-color: $bg-surface4;
-		@include shadow-template($surface-shadow,$shadow-strength);
+		@include inset-shadow-template($surface-shadow,$inset-surface-shadow,$shadow-strength);
 		&:before {
 			color: $bg-surface4;
 		}

@@ -13,6 +13,7 @@ html[theme=dark]{
 	$bg-surface3-dark: hsl($brand-hue 5%  20%);
 	$bg-surface4-dark: hsl($brand-hue 5% 25%);
 	$surface-shadow-dark: $brand-hue 50% 3%;
+	$inset-surface-shadow-dark: $brand-hue 0% 15%;
 	$shadow-strength-dark: 0.08;
 
 	$bd-color-dark: hsl($brand-hue 10% #{lightness($bg-surface1-dark)+10%} / 0.10);
@@ -26,6 +27,7 @@ html[theme=dark]{
 		$bg-surface3: $bg-surface3-dark,
 		$bg-surface4: $bg-surface4-dark,
 		$surface-shadow: $surface-shadow-dark,
+		$inset-surface-shadow: $inset-surface-shadow-dark,
 		$shadow-strength: $shadow-strength-dark,
 
 		$bd-color:$bd-color-dark,
