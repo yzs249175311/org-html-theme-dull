@@ -1,0 +1,25 @@
+#tooltip {
+	display:none;
+	position: absolute;
+	padding: .2rem .5rem;
+	border-radius: .5rem;
+	animation: tilt-in-fwd-tr 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s forwards;
+	pointer-events: none;
+    transform: translate(0, -100%) ;
+    opacity: 0;
+	&.show {
+		display:block;
+	}
+}
+
+@keyframes tilt-in-fwd-tr {
+  0% {
+    transform: translate(0, -80%) ;
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, -100%) ;
+    opacity: 1;
+  }
+}
+

@@ -250,4 +250,11 @@
 			color: $bg-surface4;
 		}
 	}
+
+	#tooltip {
+		color: inherit;
+		border-color:inherit;
+		background-color: $bg-surface2;
+		@include inset-shadow-template($surface-shadow,$inset-surface-shadow,$shadow-strength);
+	}
 }

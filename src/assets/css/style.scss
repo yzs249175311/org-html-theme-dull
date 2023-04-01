@@ -25,6 +25,7 @@ body {
 	height: 100vh;
 	box-sizing: border-box;
 	transition:all ease-out 400ms;
+	overflow:hidden;
 }
 
 ::-webkit-scrollbar {
@@ -276,7 +277,7 @@ main {
 		flex-flow:column wrap;
 
 		>li {
-			margin: 0rem 0;
+			margin: 0;
 			padding: 0rem 2rem;
 			position: relative;
 			line-height: 1.5rem;
@@ -389,6 +390,11 @@ main {
 		display: none;
 		&.active {
 			display: list-item;
+			a{
+				display:block;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
 		}
 	}
 
