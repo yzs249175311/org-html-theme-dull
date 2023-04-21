@@ -35,7 +35,7 @@ strike-through: +strike-through+
     |       |       |       |
     |       |       |       |
     |       |       |       |
-    
+
 
 1. 有序列表
    1) 有序列表
@@ -146,6 +146,16 @@ SCHEDULED: <2023-02-17 五 +1d>
 
 
 
+** footnote test
+
+- Footnote one: name[fn:1]
+- Footnote two: anonymous[fn::This is the inline definition of this footnote]
+- Footnote three: name and definition[fn:def:a definition]
+
+
+
+[fn:1]this is first notefoote definition.this is first notefoote definition.this is first notefoote definition
+
 * 一级标题2
 bold: *bold*
 italic: /italic/
@@ -171,7 +181,7 @@ strike-through: +strike-through+
     |       |       |       |
     |       |       |       |
     |       |       |       |
-    
+
 
 1. 有序列表
    1) 有序列表
@@ -182,6 +192,13 @@ strike-through: +strike-through+
    3) 有序列表
 
 ** 二级标题 1                              :你好:世界:冒险岛:还是觉得你最好:
+
+** footnote test 2
+
+- Footnote two one: anonymous[fn:def]
+- Footnote two one: anonymous[fn::2.1 This is the inline definition of this footnote]
+- Footnote two two: name and definition[fn:2:2.2 a definition]
+
 ** 二级标题 二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 2二级标题 22
 
 *** 三级标题
@@ -213,6 +230,7 @@ strike-through: +strike-through+
   quote
   quote
 #+end_quote
+
 
 *** TODO 三级标题                                             :hello:world:
 *** DONE 三级标题                                             :hello:world:
@@ -248,6 +266,8 @@ SCHEDULED: <2023-02-17 五 +1d>
 - State "DONE"       from "TODO"       [2023-02-12 日 14:21]
 :END:
 
+
+[fn:1]this is first footnote one
 
 * 读书目录
 ** 2022年
@@ -291,6 +311,7 @@ CLOSED: [2023-01-31 Tue 04:37]
 ** TODO 《堂吉诃德》
 ** TODO 《西西弗神话》
 ** TODO 《神曲》
+
 
 * 已读
 ** DONE 《当尼采哭泣》 - 欧文·亚隆                                              :哲学:心理学:

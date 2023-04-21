@@ -111,7 +111,7 @@ function renderTo(vnodes:any,elm:HTMLElement|null,fn:Function){
 	vnodes.map( (item:vnodeType) => {
 		let li = document.createElement("li")
 		let span = document.createElement("span")
-		span.innerHTML = item.content 
+		span.innerHTML = item.content
 		li.appendChild(span)
 		span.addEventListener("click",() => {
 			currentToc?.classList.remove("current")

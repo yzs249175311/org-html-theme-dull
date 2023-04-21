@@ -1,16 +1,16 @@
 import { defineComponent } from "../../Dull"
-import {toolTipWrap} from "./toolTipWrapper"
+import { toolTipWrap } from "./toolTipWrapper"
 
 let links: NodeListOf<HTMLLinkElement>
 
 //给所有链接添加title属性
 function init() {
 	//设置延迟
-	links = document.querySelectorAll("main a")!
+	links = document.querySelectorAll("main a:not(.footref)")!
 	links.forEach(function (link: HTMLLinkElement) {
-	  if(link.clientWidth!==parseInt(link.style.width)){
-		toolTipWrap(link,link.href,true)
-	  }
+		if (link.clientWidth !== parseInt(link.style.width) && link.href) {
+			toolTipWrap(link, link.href, true)
+		}
 	})
 }
 

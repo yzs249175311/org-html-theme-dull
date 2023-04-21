@@ -1,5 +1,5 @@
 import { defineComponent } from "../../Dull"
-import {toolTipWrap} from "./toolTipWrapper"
+import { toolTipWrap } from "./toolTipWrapper"
 
 let links: NodeListOf<HTMLLinkElement>
 
@@ -8,9 +8,7 @@ function init() {
 	//设置延迟
 	links = document.querySelectorAll("#text-table-of-contents a")!
 	links.forEach(function (link: HTMLLinkElement) {
-	  if(link.clientWidth!==parseInt(link.style.width)){
-		toolTipWrap(link,link.innerText)
-	  }
+		toolTipWrap(link, link.innerText, false)
 	})
 }
 

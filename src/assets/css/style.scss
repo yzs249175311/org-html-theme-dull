@@ -55,7 +55,6 @@ img {
 	max-width: 100%;
 }
 
-
 table {
 	padding: 1rem;
 	margin: 1rem;
@@ -81,7 +80,7 @@ table {
 		display: flex;
 		align-items: center;
 		line-height: initial;
-		
+
 		&::before {
 			content: "";
 			display: flex;
@@ -152,11 +151,11 @@ main {
 	flex-flow: column nowrap;
 	overflow: hidden auto;
 	scroll-behavior: smooth;
-	top:0;
-	flex:1;
 	box-sizing: border-box;
 	padding: 0px 1rem;
 	overscroll-behavior: none;
+	flex:1 1;
+	position:relative;
 
 	.outline-2{
 		display: none;
@@ -211,7 +210,7 @@ main {
 				&:nth-of-type(3){
 					background-color: #27c93f;
 				}
-				
+
 			}
 		}
 
@@ -331,7 +330,6 @@ main {
 			border-radius:1rem;
 			padding: 0.5rem 1rem;
 			margin: 1rem 0;
-			z-index:10;
 
 			@if $index == 1 {
 				font-size: 3rem;
@@ -356,7 +354,7 @@ main {
 				background-image: url($bg-image-2);
 				background-size: contain;
 				background-repeat: no-repeat;
-				
+
 			}
 
 			&>span[class^=section-number]+span {
@@ -371,20 +369,19 @@ main {
 
 #table-of-contents {
 	display: flex;
-	flex:0.3 0;
+	flex:0.3 1;
 	flex-direction: column;
-	border-left: 1px solid ;
 	padding: 0.5rem;
 	padding-top: 0;
 	box-sizing: border-box;
 	overflow: hidden auto;
+	position: relative;
 
 	#text-table-of-contents{
 		&.hidden{
 			display: none;
 		}
 	}
-	
 
 	#text-table-of-contents>ul>li{
 		display: none;
@@ -499,9 +496,6 @@ blockquote {
 	}
 }
 
-
-
-
 #postamble{
 	margin-top: auto;
 	.validation{
@@ -509,5 +503,25 @@ blockquote {
 	}
 }
 
-@import "./media.scss";
+#footnotes{
+	position: fixed;
+	background-color: #fff;
+	transform: translateX(-120%);
+	top:0;
+	left:0;
+	height: 100%;
+	width: 20vw;
+	overflow: hidden auto;
+	transition: transform 450ms ease;
+	padding: 1rem;
 
+	&.show{
+		transform: translateX(0);
+	}
+
+	h2 {
+		padding-bottom: 1rem;
+	}
+}
+
+@import "./media.scss";

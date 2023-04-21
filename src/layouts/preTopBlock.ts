@@ -11,7 +11,7 @@ function preTopBlock(){
 		topBlock.appendChild(document.createElement("span"))
 		topBlock.appendChild(document.createElement("span"))
 		item.insertAdjacentElement("afterbegin",topBlock)
-		
+
 
 		//给pre添加关于它展示的是什么代码的属性
 		let lang = item.className.match(/(?<=src-)\w+|example/)

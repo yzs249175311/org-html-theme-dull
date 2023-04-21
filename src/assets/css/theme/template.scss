@@ -71,6 +71,11 @@
 		text-decoration-color: $brand;
 	}
 
+	a {
+		color: $brand;
+		text-decoration-color: $brand;
+	}
+
 	del{
 		text-decoration-color: $brand;
 	}
@@ -149,10 +154,6 @@
 			@include inset-shadow-template($surface-shadow,$inset-surface-shadow,$shadow-strength)
 		}
 
-		a {
-			color: $brand;
-			text-decoration-color: $brand;
-		}
 
 		ul>li{
 			&::marker{
@@ -171,7 +172,7 @@
 
 		}
 
-		
+
 		@for $index from 1 through 6{
 			h#{$index}{
 				border-color:$bd-color;
@@ -255,6 +256,12 @@
 		color: inherit;
 		border-color:inherit;
 		background-color: $bg-surface2;
+		@include inset-shadow-template($surface-shadow,$inset-surface-shadow,$shadow-strength);
+	}
+
+	#footnotes {
+		color: inherit;
+		background-color: $bg-surface1;
 		@include inset-shadow-template($surface-shadow,$inset-surface-shadow,$shadow-strength);
 	}
 }
