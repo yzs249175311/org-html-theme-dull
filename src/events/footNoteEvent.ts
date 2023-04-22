@@ -38,8 +38,10 @@ function addFootRefDefListener() {
 
 		if (def) {
 			ref.addEventListener("click", () => {
-				openFootNote()
-				def?.scrollIntoView()
+				if (!footNotes?.classList.contains("show")) {
+					openFootNote()
+					def?.scrollIntoView()
+				}
 			})
 
 			if (defMap.has(def)) {
@@ -87,6 +89,7 @@ function closeFootNote() {
 
 
 export default defineComponent({
+	after: ["footNotes"],
 	name: "footNoteEvent",
 	type: "event",
 	init,
