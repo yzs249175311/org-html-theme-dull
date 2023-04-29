@@ -3,10 +3,6 @@
 	overflow: initial hidden;
 	position: relative;
 
-	@media screen and (max-width: 1000px){
-		display:none;
-	}
-
 	#table-of-contents{
 		position: absolute;
 		left:8px;

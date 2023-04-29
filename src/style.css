@@ -36,21 +36,22 @@ pre {
 	white-space: pre;
 }
 pre.src{
-	position: relative;
+	/* position: relative; */
 	overflow: auto;
 }
 pre.src:before {
-	display: none;
+	display: inline;
 	position: absolute;
-	top: -8px;
-	right: 12px;
+	top: 1rem;
+	right: 2rem;
 	padding: 3px;
 	color: #555;
+	margin-top: 14px;
 }
 pre.example:before {
 	color: #555;
 }
-pre.src:hover:before { display: inline; margin-top: 14px;}
+/* pre.src:hover:before { display: inline; margin-top: 14px;} */
 /* Languages per Org manual */
 /* pre.src-asymptote:before { content: 'Asymptote'; } */
 /* pre.src-awk:before { content: 'Awk'; } */
