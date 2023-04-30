@@ -193,6 +193,7 @@ main {
 			border:1px solid ;
 			border-radius:1rem;
 			transition:all ease-out 400ms;
+			padding-left: 1rem;
 			padding-top: 3rem;
 			padding-bottom: 1rem;
 			overflow: auto;
@@ -244,9 +245,9 @@ main {
 		padding: 0 0.5rem;
 	}
 
-	div>p{
-		padding: 0.5rem 2rem;
-	}
+	// div>p{
+	// 	padding: 0.5rem 2rem;
+	// }
 
 	// div ul,div ol {
 	// 	display:flex;
@@ -305,7 +306,7 @@ main {
 			font-weight: 400 ;
 			border:2px solid;
 			border-radius:1rem;
-			padding: 0.5rem 1rem;
+			padding: 0.5rem 0rem;
 			margin: 1rem 0;
 
 			@if $index == 1 {
@@ -453,20 +454,20 @@ main {
 blockquote {
 	border-left: 10px solid ;
 	margin: 1.5em 10px;
-	padding: 0.5em 10px;
-	quotes: "\201C""\201D""\2018""\2019";
+	padding: 0.5em 2rem;
+	quotes: "\201C""\201D";
+	// quotes: "\201C""\201D""\2018""\2019";
+	position: relative;
 
-	&:before {
+	&::before {
+		position: absolute;
+		left:-0.4em;
+		top:-0.2em;
+		font-family: monospace;
 		content: open-quote;
-		font-size: 4em;
-		line-height: 0.1em;
-		margin-right: 0.25em;
-		vertical-align: -0.4em;
+		font-size: 6em;
 	}
 
-	& p {
-		display: inline;
-	}
 }
 
 #postamble{

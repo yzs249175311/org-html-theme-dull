@@ -166,7 +166,11 @@ quote:
   quote
   quote
   quote
+
+  // 注释
+
 [[file:assets/image.jpg]]
+
 long line.long line.long line.long line.long line.long line.long line.long line.long line.long line.long line.long line.long line.long line.long line.long line.long line.long line.long line.long line.long line.long line.long line.long line.
 #+end_quote
 
