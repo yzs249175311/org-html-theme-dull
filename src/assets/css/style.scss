@@ -1,5 +1,6 @@
 @import "./svg.scss";
 @import "./theme/index.scss";
+@import "./font.scss";
 
 :root{
 	display:flex;
@@ -189,7 +190,7 @@ main {
 		position: relative;
 		overflow: hidden;
 		pre {
-			font-family:"Noto Sans Mono","Noto Sans SC",monospace;
+			font-family:"Noto Sans Mono CJK",monospace;
 			border:1px solid ;
 			border-radius:1rem;
 			transition:all ease-out 400ms;

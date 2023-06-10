@@ -116,6 +116,8 @@ long line.long line.long line.long line.long line.long line.long line.long line.
   代码块
   代码块
   代码块
+  等宽字体等宽字体等宽字体等宽字体等宽字体等宽字体等宽字体等宽字体等宽字体等宽字体等宽字体等宽字体等宽字体
+  1234567890-=abcdefghijklmnopqrstuvwsyzABCKEFGHIJKLMNOPQRSTUVWXYZ,，.。
 #+end_src
 
 
