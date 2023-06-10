@@ -2,10 +2,10 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
 	preview: {
-		open: "./example.html",
+		open: "./docs/org-html-theme-dull.html",
 	},
 	server: {
-		open: "./example.html",
+		open: "./org-html-theme-dull.html",
 	},
 	build: {
 		outDir: "docs/",

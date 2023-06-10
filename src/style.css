@@ -43,9 +43,9 @@ pre.src{
 pre.src:before {
 	display: inline;
 	position: absolute;
-	top: 1rem;
-	right: 2rem;
-	padding: 3px;
+	top: 0;
+	right: 1rem;
+	/* padding: 3px; */
 	color: #555;
 	margin-top: 14px;
 }

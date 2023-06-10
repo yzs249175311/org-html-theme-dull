@@ -189,6 +189,9 @@ main {
 	.org-src-container {
 		position: relative;
 		overflow: hidden;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		border-radius:1rem;
 		pre {
 			font-family:"Noto Sans Mono CJK",monospace;
 			border:1px solid ;
@@ -198,14 +201,15 @@ main {
 			padding-top: 3rem;
 			padding-bottom: 1rem;
 			overflow: auto;
+			margin: 0px;
 
 			.copy-block{
 				visibility: hidden;
 				position: absolute;
 				font-size: 1rem;
 				font-family: "Google Noto Color Emoji";
-				right: 2rem;
-				bottom: 2rem;
+				right: 1rem;
+				bottom: 1rem;
 
 				&::before{
 					content:"📋";
@@ -234,8 +238,8 @@ main {
 				content:"example";
 				display: block;
 				position: absolute;
-				top:2rem;
-				right: 2rem;
+				top:1rem;
+				right: 1rem;
 			}
 		}
 	}
@@ -462,7 +466,7 @@ blockquote {
 
 	&::before {
 		position: absolute;
-		left:-0.4em;
+		left:0;
 		top:-0.2em;
 		font-family: monospace;
 		content: open-quote;
@@ -505,8 +509,7 @@ blockquote {
 	display:flex;
 	position: absolute;
 	top: 1rem;
-	left: 2rem;
-	top: 2.25rem;
+	left: 1rem;
 	&>span{
 		width: 1rem;
 		height: 1rem;

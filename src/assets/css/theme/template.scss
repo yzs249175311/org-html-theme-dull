@@ -148,10 +148,16 @@
 			color: $code-color;
 		}
 
+		.org-src-container{
+			border-color: transparent;
+			background-color: transparent;;
+			@include inset-shadow-template($surface-shadow,$inset-surface-shadow,$shadow-strength)
+		}
+
 		pre {
 			border-color: $bg-surface4;
 			background-color: $bg-surface3;
-			@include inset-shadow-template($surface-shadow,$inset-surface-shadow,$shadow-strength)
+			// @include inset-shadow-template($surface-shadow,$inset-surface-shadow,$shadow-strength)
 		}
 
 
