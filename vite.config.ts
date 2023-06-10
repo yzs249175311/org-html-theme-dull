@@ -10,16 +10,18 @@ export default defineConfig({
 	build: {
 		outDir: "docs/",
 		rollupOptions: {
-			input: "./example.html",
+			input: "./org-html-theme-dull.html",
 			output: {
 				// 入口文件名
-				entryFileNames: 'assets/org-html-theme-dull.js',
+				entryFileNames: 'assets/[name].js',
 				// 块文件名
 				chunkFileNames: 'assets/[name]-[hash].js',
 				// 资源文件名 css 图片等等
-				assetFileNames: 'assets/org-html-theme-dull.[ext]',
+				// assetFileNames: 'assets/[name].[ext]',
+				assetFileNames: (chunk)=>{
+					return "assets/"+chunk.name;
+				},
 			},
 		},
 	},
-
 })
